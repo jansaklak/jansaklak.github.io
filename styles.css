@@ -1,0 +1,200 @@
+body {
+    background-color: #000080;
+    color: #AFA8AF;
+    font-family: 'VT323', monospace;
+    margin: 0;
+    padding: 0;
+    cursor: none;
+}
+h1 {
+    color: #FFFFFF;
+    background-color: #000080;
+    padding: 8px;
+    margin-bottom: 16px;
+    border-bottom: 8px solid #AFA8AF;
+    border-style: outset;
+    cursor: none;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    background-color: #000080;
+    border: 8px solid #000000;
+    border-style: inset;
+    padding: 16px;
+    width: 256px;
+    margin: 0 auto;
+    cursor: none;
+}
+label, select, button, p {
+    margin-bottom: 16px;
+    font-family: 'VT323', monospace;
+    font-size: x-large;
+    cursor: none;
+}
+label {
+    color: #FFFF00;
+    cursor: none;
+}
+a:link {
+    color: #AFA8AF;
+    background-color: transparent;
+    text-decoration: none;
+    cursor: none;
+}
+select, button {
+    background-color: #000080;
+    color: #FFFF00;
+    border: 8px solid #AFA8AF;
+    border-style: outset;
+    padding: 8px;
+    font-family: 'VT323', monospace;
+    cursor: none;
+}
+button {
+    cursor: pointer;
+}
+button:hover {
+    background-color: #00B000;
+    color: #000080;
+    cursor: none;
+}
+#response {
+    border-top: 8px solid #AFA8AF;
+    margin-top: 8px;
+    color: #00FF00;
+    cursor: none;
+}
+.topnav {
+    overflow: hidden;
+    background-color: #AFA8AF;
+    border-style: outset;
+    border: 8px solid #2e2e2e;
+    cursor: none;
+}
+.topnav a {
+    float: left;
+    display: block;
+    color: #000000;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: x-large;
+    cursor: none;
+}
+.topnav a::first-letter {
+    color: #AF0000;
+    cursor: none;
+}
+.topnav a:hover {
+    background-color: #00B000;
+    color: black;
+    cursor: none;
+}
+@media screen and (max-width: 768px) {
+    .topnav a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+    form {
+        width: 100%;
+        padding: 8px;
+        border: none;
+    }
+    select, button {
+        font-size: large;
+        border-width: 4px;
+    }
+}
+
+.dropdown {
+    float: left;
+    display: block;
+    color: #AFA8AF;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: x-large;
+    cursor: none;
+}
+
+
+.clock {
+    float: right;
+    padding: 14px 16px;
+    color: #FFFF00;
+    font-size: 64px;
+    cursor: none;
+}
+
+.dropbtn {
+
+    float: left;
+    display: block;
+    color: #000000;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: x-large;
+    /* border: none; */
+    background-color: #AFA8AF;
+    cursor: pointer; color: #050505;
+    
+}
+
+.dropbtn:hover {
+    background-color: #00B000;
+    color: black;
+    cursor: none;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #6e6e6e;
+    min-width: 80px;
+    z-index: 1;
+    cursor: none;
+}
+
+.dropdown-content a {
+    float: none;
+    color: rgb(0, 0, 0);
+    background-color: #6e6e6e;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    background-color: #6e6e6e;
+    cursor: none;
+
+}
+
+.dropdown-content a:hover {
+    background-color: #00B000;
+    cursor: none;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    cursor: none;
+}
+
+#cursor {
+    position: absolute;
+    width: 16px; /* Szerokość prostokąta */
+    height: 32px; /* Wysokość prostokąta */
+    background-color: black; /* Domyślny kolor prostokąta */
+    pointer-events: none; /* Zapobiega przechwytywaniu zdarzeń myszy */
+    z-index: 9999; /* Ustawia kursor na wierzchu */
+}
+
+canvas {
+    border: 8px solid white;
+    cursor: none;
+}
+
+.toolbar {
+    margin-bottom: 10px;
+}
