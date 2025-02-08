@@ -52,6 +52,24 @@
     <script src="scripts.js"></script>
     <script src="mobile_scripts.css" media="only screen and (max-width: 1380px)"></script>
 
+     <div class="documentation">
+        <div id="quiz-handler">
+            <input type="file" id="fileInput" accept=".json" hidden>
+            <label for="fileInput" class="button">Select File</label>
+            <button onclick="loadFile()">Load Questions</button>
+        </div>
+    </div>
+
+    <div class="documentation">
+        <div id="quiz-container" class="hidden">
+            <p id="counter"></p>
+            <p id="score"></p>
+            <p id="question"></p>
+            <div id="answers"></div>
+            <button id="submit" onclick="submitAnswer()">Submit</button>
+        </div>
+    </div>
+
 
 
 
