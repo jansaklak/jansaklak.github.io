@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main</title>
-    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="mobile.css" media="only screen and (max-width: 1380px)">
-</head>
-
-
-
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Strona domowa</title>
+        <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="mobile.css" media="only screen and (max-width: 1380px)">
+    </head>
 <body>
+
 
 
     <div class="topnav">
@@ -37,13 +35,13 @@
         <div class="dropdown">
             <button class="dropbtn">IT</button>
             <div class="dropdown-content">
-                <a href="index.html">Nothing</a>
+                <a href="embedded.html">Nothing</a>
             </div>
         </div>
         <div class="dropdown">
             <button class="dropbtn">Cognitive Science</button>
             <div class="dropdown-content">
-                <a href="index.html">Nothing</a>
+                <a href="embedded.html">Nothing</a>
             </div>
         </div>
     
@@ -51,19 +49,39 @@
         <div class="clock" id="clock"></div>
     </div>
     <script src="scripts.js"></script>
-    <script src="mobile_scripts.css" media="only screen and (max-width: 1380px)"></script>
     <div id="cursor"></div>
 
     <div class="documentation">
-        <h2> Welcome to main site.  </h2>
+        <div id="quiz-handler">
+            <input type="file" id="fileInput" accept=".json" hidden>
+            <label for="fileInput" class="button">Select File</label>
+            <button onclick="loadFile()">Load Questions</button>
+        </div>
+    </div>
 
+    <div class="documentation">
+        <div id="quiz-container" class="hidden">
+            <p id="counter"></p>
+            <p id="score"></p>
+            <p id="question"></p>
+            <div id="answers"></div>
+            <button id="submit" onclick="submitAnswer()">Submit</button>
+        </div>
     </div>
 
 
+
+
+
+    
+
+    
+
+    
+    
     
 </body>
 
-<!-- Calculator Popup (Add this code once in a common HTML file like footer) -->
 <div id="calculator-popup" class="calculator-popup hidden">
     <div class="calculator-window">
         <div class="calculator-header">

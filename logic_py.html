@@ -1,18 +1,16 @@
 <!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main</title>
-    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="mobile.css" media="only screen and (max-width: 1380px)">
-</head>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Logic gates</title>
+        <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="mobile.css" media="only screen and (max-width: 1380px)">
+    </head>
 
-
-
+   
 <body>
-
 
     <div class="topnav">
         <a href="index.html">Main</a>
@@ -37,13 +35,13 @@
         <div class="dropdown">
             <button class="dropbtn">IT</button>
             <div class="dropdown-content">
-                <a href="index.html">Nothing</a>
+                <a href="embedded.html">Nothing</a>
             </div>
         </div>
         <div class="dropdown">
             <button class="dropbtn">Cognitive Science</button>
             <div class="dropdown-content">
-                <a href="index.html">Nothing</a>
+                <a href="embedded.html">Nothing</a>
             </div>
         </div>
     
@@ -51,19 +49,39 @@
         <div class="clock" id="clock"></div>
     </div>
     <script src="scripts.js"></script>
-    <script src="mobile_scripts.css" media="only screen and (max-width: 1380px)"></script>
+    
+
+    <div class="localnav">
+        <a href="#" onclick="showSection('instruction')">Instruction</a>
+        <a href="#" onclick="showSection('example')">Example</a>
+        <a href="https://github.com/jansaklak">GITHUB_link</a>
+    </div>
+
+    <div id="content-container">
+        <div id="instruction-section" class="content-section">
+            <div class="documentation">
+                <h2>Code to simulate work of logic gates written in Python.</h2>
+            </div>
+        </div>
+
+        <div id="example-section" class="content-section hidden">
+            <div class="documentation">
+                <h2>Screenshot:</h2>
+                <img src="img/gates.jpg" alt="Screenshot">
+            </div>
+        </div>
+    </div>
+
     <div id="cursor"></div>
 
-    <div class="documentation">
-        <h2> Welcome to main site.  </h2>
-
-    </div>
 
 
     
-</body>
 
-<!-- Calculator Popup (Add this code once in a common HTML file like footer) -->
+
+
+
+
 <div id="calculator-popup" class="calculator-popup hidden">
     <div class="calculator-window">
         <div class="calculator-header">
@@ -96,6 +114,6 @@
         </div>
     </div>
 </div>
-
-
+<script src="scripts.js"></script>
+</body>
 </html>

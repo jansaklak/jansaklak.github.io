@@ -32,8 +32,6 @@ html {
     margin-top: 160px;
 }
 
-
-
 .localnav {
     display: flex;
     align-items: center;
@@ -46,30 +44,20 @@ html {
     height: 32px;
     position: fixed;
     width: 100%;
-    
     cursor: none;
     z-index: 99; /* Mniejszy z-index, aby znajdowało się pod topnav */
     top: 90px; /* Wyrównanie poniżej topnav */
 }
 
-.localnav a {
-    color: #000;
-    text-decoration: none;
-    padding: 8px 16px;
-    display: inline-block;
-    position: relative; /* Upewnia się, że pseudo-elementy są prawidłowo pozycjonowane */
-}
-
 .localnav a:not(:last-child)::after {
     content: '';
     position: absolute;
-    right: -4px; /* Odsunięcie kreski na prawo */
-    top: 20%;
-    bottom: 20%;
+    right: 0;
+    top: 25%;
+    bottom: 25%;
     width: 2px;
     background-color: black;
 }
-
 
 /* Common styles for navigation items */
 .topnav a {
@@ -90,6 +78,12 @@ html {
     margin: 0;
 }
 
+.localnav a {
+    color: #000;
+    text-decoration: none;
+    padding: 8px 16px;
+    display: inline-block;
+}
 
 .localnav a:hover {
     background-color: #00B000;
@@ -190,15 +184,7 @@ img {
 
 /* Clock */
 .clock {
-    position: absolute; /* Changed from absolute to fixed */
-    top: 4px;
-    right: 64px;
-    font-size: 400%;
-    border: 4px outset #AFA8AF;
-    color: #FFFF00;
-    z-index: 9998; /* High z-index but below cursor */
-    padding: 0px 0px;
-    border: 2px solid #AFA8AF;
+    display: none;
 }
 
 /* Headings */

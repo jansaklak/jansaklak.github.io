@@ -1,18 +1,16 @@
 <!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main</title>
-    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="mobile.css" media="only screen and (max-width: 1380px)">
-</head>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Logic gates</title>
+        <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="mobile.css" media="only screen and (max-width: 1380px)">
+    </head>
 
-
-
+   
 <body>
-
 
     <div class="topnav">
         <a href="index.html">Main</a>
@@ -31,19 +29,18 @@
                 <a href="logic_py.html">Logic gates simulator</a>
                 <a href="tester_bash.html">BASH tester</a>
                 <a href="genetic_blender.html">Blender Genetic Algorithm</a>
-                <a href="trams.html">Tram Simulator</a>
             </div>
         </div>
         <div class="dropdown">
             <button class="dropbtn">IT</button>
             <div class="dropdown-content">
-                <a href="index.html">Nothing</a>
+                <a href="embedded.html">Nothing</a>
             </div>
         </div>
         <div class="dropdown">
             <button class="dropbtn">Cognitive Science</button>
             <div class="dropdown-content">
-                <a href="index.html">Nothing</a>
+                <a href="embedded.html">Nothing</a>
             </div>
         </div>
     
@@ -51,19 +48,55 @@
         <div class="clock" id="clock"></div>
     </div>
     <script src="scripts.js"></script>
-    <script src="mobile_scripts.css" media="only screen and (max-width: 1380px)"></script>
+    
+
+    <div class="localnav">
+        <a href="#" onclick="showSection('instruction')">Instruction</a>
+        <a href="#" onclick="showSection('example')">Example</a>
+        <a href="https://github.com/jansaklak">GITHUB_link</a>
+    </div>
+
+    <div id="content-container">
+        <div id="instruction-section" class="content-section">
+            <div class="documentation">
+                <h2>Code to simulate work of logic gates written in Python.</h2>
+                <h2>Instrukcja użycia:</h2>
+                <p>./tester [opcje]</p>
+                <h2>Opcje:</h2>
+                <p>
+                    -o FOLDER             Ustaw folder wyjściowy na FOLDER (domyślnie OUTPUT) <br/>
+                    -i FILE               Ustaw plik wejściowy na FILE (domyślnie ./a.out)<br/>
+                    -v,fromFile FILE      Ustaw plik z listą programow do uruchomienia<br/>
+                    --args FILE           Plik z argumentami dla testowanych programów<br/>
+                    --cmp FILE            Ustaw plik oczekiwany wyjściowy z którym ma być zgodne wyjście<br/>
+                    --omp                 Skorzystaj z OpenMP<br/>
+                    --mpi                 Skorzystaj z MPI<br/>
+                    -minCore NUM          Ustaw minimalną liczbę rdzeni na NUM<br/>
+                    -c,-maxCore NUM       Ustaw maksymalną liczbę rdzeni na NUM (domyślnie 2)<br/>
+                    -s,-silent            Tryb cichy - brak wypisywania na ekran<br/>
+                    -h, -help             Wyświetl tę instrukcję<br/>
+                </p>
+            </div>
+        </div>
+
+        <div id="example-section" class="content-section hidden">
+            <div class="documentation">
+                <h1>Przykładowy plik podsumowujący:</h1>
+                <img src="img/bash_test.jpg" alt="Screenshot">
+            </div>
+        </div>
+    </div>
+
     <div id="cursor"></div>
 
-    <div class="documentation">
-        <h2> Welcome to main site.  </h2>
-
-    </div>
 
 
     
-</body>
 
-<!-- Calculator Popup (Add this code once in a common HTML file like footer) -->
+
+
+
+
 <div id="calculator-popup" class="calculator-popup hidden">
     <div class="calculator-window">
         <div class="calculator-header">
@@ -96,6 +129,6 @@
         </div>
     </div>
 </div>
-
-
+<script src="scripts.js"></script>
+</body>
 </html>
