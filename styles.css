@@ -212,6 +212,17 @@ h1 {
     text-align: center;
 }
 
+h4 {
+    color: #FFFFFF;
+    background-color: #000080;
+    padding: 8px;
+    margin-bottom: 16px;
+    font-size: large;
+    border-bottom: 8px solid #AFA8AF;
+    border-style: outset;
+    text-align: left;
+}
+
 /* Forms */
 form {
     display: flex;

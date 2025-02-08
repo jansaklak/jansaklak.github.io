@@ -25,6 +25,7 @@
         <div class="dropdown">
             <button class="dropbtn">Documentations</button>
             <div class="dropdown-content">
+                <a href="moviedb.html">Movie database</a>
                 <a href="embedded_sim.html">Embedded Resource Simulator</a>
                 <a href="logic_py.html">Logic gates simulator</a>
                 <a href="tester_bash.html">BASH tester</a>
@@ -32,50 +33,136 @@
                 <a href="trams.html">Tram Simulator</a>
             </div>
         </div>
-        <div class="dropdown">
+        <!-- <div class="dropdown">
             <button class="dropbtn">IT</button>
             <div class="dropdown-content">
-                <a href="embedded.html">Nothing</a>
+                <a href="index.html">Nothing</a>
             </div>
         </div>
         <div class="dropdown">
             <button class="dropbtn">Cognitive Science</button>
             <div class="dropdown-content">
-                <a href="embedded.html">Nothing</a>
+                <a href="index.html">Nothing</a>
             </div>
-        </div>
+        </div> -->
     
         <a href="about.html">About</a>
         <div class="clock" id="clock"></div>
     </div>
     <script src="scripts.js"></script>
+    <script src="mobile_scripts.css" media="only screen and (max-width: 1380px)"></script>
     
 
     <div class="localnav">
-        <a href="#" onclick="showSection('instruction')">Instruction</a>
-        <a href="#" onclick="showSection('example')">Example</a>
-        <a href="#" onclick="showSection('chart')">Gantts_Chart</a>
+        <a href="#" onclick="showSection('Overview')">Overview</a>
+        <a href="#" onclick="showSection('Structure')">Structure</a>
+        <a href="#" onclick="showSection('Functionality')">Functionality</a>
+        <a href="#" onclick="showSection('Usage')">Usage</a>
 
-        <a href="https://github.com/jansaklak">GITHUB_link</a>
+        <a href="#" onclick="showSection('Chart')">Gantts Chart</a>
+
+        <a href="https://github.com/jansaklak">GITHUB</a>
     </div>
 
     <div id="content-container">
-        <div id="instruction-section" class="content-section">
+        <div id="Overview-section" class="content-section">
             <div class="documentation">
-                <h2>C++ program to simulate and develop task scheduling.</h2>
-                <h2>To run:</h2>
-                <p>make run</p>
+                <h2>Overview</h2>
+                <p>
+                    This project is a task scheduling system designed to optimize the allocation of tasks across different hardware instances. The system supports various scheduling rules, conditional tasks, and unpredicted tasks. It also provides functionality for simulating task execution, calculating costs, and generating schedules.
+                </p>
             </div>
         </div>
 
-        <div id="example-section" class="content-section hidden">
+
+
+        <div id="Structure-section" class="content-section hidden">
             <div class="documentation">
-                <h2>Functions:</h2>
-                <img src="img/bash_test.jpg" alt="Screenshot">
+                <h2>Project Structure</h2>
+                <p>
+                    The project is organized into several key components, each responsible for different aspects of the system:
+                </p>
+                <h3>Cost_List Class</h3>
+                    <p>
+                        The <code>Cost_List</code> class is the core of the project. It manages tasks, hardware instances, and scheduling rules. Key functionalities include:
+                    </p>
+                    <ul>
+                        <li><strong>Task Distribution:</strong> Implements various scheduling rules for task allocation.</li>
+                        <li><strong>Instance Management:</strong> Handles the creation and management of hardware instances.</li>
+                        <li><strong>Task Execution:</strong> Simulates task execution and calculates execution times and costs.</li>
+                        <li><strong>Printing and Reporting:</strong> Provides methods to print schedules, costs, and other relevant information.</li>
+                    </ul>
+
+                    <h3>Hardware and Instance Management</h3>
+                    <p>
+                        The project includes classes for managing hardware resources (<code>Hardware</code>) and task instances (<code>Instance</code>). These classes are used to represent the physical hardware and the tasks assigned to them.
+                    </p>
+
+                    <h3>Task Graph</h3>
+                    <p>
+                        The <code>Graf</code> class represents the task graph, which defines the dependencies between tasks. It provides methods for traversing the graph (e.g., BFS, DFS) and managing task relationships.
+                    </p>
+                    <h3>Times and Costs</h3>
+                    <p>
+                        The <code>Times</code> class manages the time and cost associated with executing tasks on different hardware. It provides methods for retrieving and normalizing these values.
+                    </p>
+
+
             </div>
         </div>
 
-        <div id="chart-section" class="content-section hidden">
+        
+        <div id="Functionality-section" class="content-section hidden">
+            <div class="documentation">
+                <h2>Key Functionality</h2>
+                    <h3>Task Scheduling</h3>
+                    <p>
+                        The system supports multiple scheduling rules, which are implemented in the <code>taskDistribution</code> method. These rules determine how tasks are allocated to hardware instances based on criteria such as time, cost, and hardware availability.
+                    </p>
+
+                    <h3>Conditional Tasks</h3>
+                    <p>
+                        Conditional tasks are tasks that are executed only if certain conditions are met. The system evaluates these conditions during task execution and skips tasks if the conditions are not satisfied.
+                    </p>
+
+                    <h3>Unpredicted Tasks</h3>
+                    <p>
+                        Unpredicted tasks are tasks that are not known at the time of scheduling. The system handles these tasks dynamically by creating new instances or reallocating existing resources.
+                    </p>
+                    <h3>Simulation and Reporting</h3>
+                    <p>
+                        The system simulates task execution and provides detailed reports on task schedules, execution times, and costs. The <code>printSchedule</code> and <code>printInstances</code> methods are used to generate these reports.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div id="Usage-section" class="content-section hidden">
+            <div class="documentation">
+                <h2>Usage</h2>
+                <p>
+                    To use the system, follow these steps:
+                </p>
+                <ol>
+                    <li>Load the configuration and task data using the <code>Load_Config</code> and <code>Load_From_File</code> methods.</li>
+                    <li>Define the task graph and hardware resources.</li>
+                    <li>Choose a scheduling rule and call the <code>taskDistribution</code> method to allocate tasks.</li>
+                    <li>Simulate task execution using the <code>runTasks</code> method.</li>
+                    <li>Generate reports using the <code>printSchedule</code>, <code>printInstances</code>, and other printing methods.</li>
+                </ol>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+        <div id="Chart-section" class="content-section hidden">
             <div class="documentation">
                 <h2>Generated Gantts Chart:</h2>
                 <img src="img/gantt.jpeg" alt="Screenshot">

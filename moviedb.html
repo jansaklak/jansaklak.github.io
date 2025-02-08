@@ -3,14 +3,14 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Strona domowa</title>
+        <title>Logic gates</title>
         <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="styles.css">
         <link rel="stylesheet" href="mobile.css" media="only screen and (max-width: 1380px)">
     </head>
+
+   
 <body>
-
-
 
     <div class="topnav">
         <a href="index.html">Main</a>
@@ -51,19 +51,98 @@
     </div>
     <script src="scripts.js"></script>
     <script src="mobile_scripts.css" media="only screen and (max-width: 1380px)"></script>
+    
+
+    <div class="localnav">
+        <a href="#" onclick="showSection('Overview')">Overview</a>
+        <a href="#" onclick="showSection('Features')">Features_and_technologies</a>
+        <a href="#" onclick="showSection('Structure')">Structure</a>
+        <a href="#" onclick="showSection('Setup')">Setup</a>
+        <a href="https://github.com/jansaklak">GITHUB</a>
+    </div>
+
+    <div id="content-container">
+        <div id="Overview-section" class="content-section">
+            <div class="documentation">
+                <h2>MovieDB</h2>
+                <p> Web application designed to provide users with information about movies. It is built using Node.js with the Express.js framework, EJS templating engine, and utilizes a SQLite database for data storage.</p>
+            </div>
+        </div>
+
+        <div id="Features-section" class="content-section">
+            <div class="documentation">
+                <h2>Features.</h2>
+                <ul>
+                    <li>Movie Search: Users can search for movies by title.</li>                   </li>
+                    <li>Movie Details: Display detailed information about selected movies, including title, release date, and overview.</li>                    </li>
+                </ul>
+                <h2>Technologies Used.</h2>
+                <ul>
+                    <li>Backend: Users can search for movies by title.</li>                   </li>
+                    <li>Frontend: Display detailed information about selected movies, including title, release date, and overview.</li>                    </li>
+                    <li>Database: SQLite for storing movie data.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="Structure-section" class="content-section">
+            <div class="documentation">
+                <h2>Project Structure.</h2>
+                <h3>The project follows a standard MVC (Model-View-Controller) architecture:</h3>
+                <ul>
+                    <li>Controllers: Handle the application's logic and interact with the database.</li>                   </li>
+                    <li>Models: Define the data structures and interact with the database.</li>                    </li>
+                    <li>Views: EJS templates that render the user interface.                    </li> 
+                    <li>Routes: Define the application's endpoints and map them to controller functions.</li>                  </li> 
+                    <li>Public: Contains static assets like CSS files.</li> 
+                </ul>
+            </div>
+        </div>
+
+        <div id="Setup-section" class="content-section">
+            <div class="documentation">
+                <h2>Setup and Installation</h2>
+                <ol>
+                    <li>Clone the Repository:
+                        <h4>
+                            git clone https://github.com/jansaklak/MovieDB.git
+                            <br>cd MovieDB
+                        </h4>
+                    </li>
+                    <li>Install Dependencies.
+                        <h4>
+                            npm install
+                        </h4>
+                    </li>
+                    <li>Start the Application
+                        <h4>
+                            npm start
+                        </h4>
+                    </li> 
+                </ol>
+                The application will run on http://localhost:3000
+            </div>
+        </div>
 
 
+
+        <div id="example-section" class="content-section hidden">
+            <div class="documentation">
+                <h2>Screenshot:</h2>
+                <img src="img/gates.jpg" alt="Screenshot">
+            </div>
+        </div>
+    </div>
+
+    <div id="cursor"></div>
 
 
 
     
 
-    
 
-    
-    
-    
-</body>
+
+
 
 <div id="calculator-popup" class="calculator-popup hidden">
     <div class="calculator-window">
@@ -97,6 +176,6 @@
         </div>
     </div>
 </div>
-
-
+<script src="scripts.js"></script>
+</body>
 </html>

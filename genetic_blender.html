@@ -25,66 +25,160 @@
         <div class="dropdown">
             <button class="dropbtn">Documentations</button>
             <div class="dropdown-content">
+                <a href="moviedb.html">Movie database</a>
                 <a href="embedded_sim.html">Embedded Resource Simulator</a>
                 <a href="logic_py.html">Logic gates simulator</a>
                 <a href="tester_bash.html">BASH tester</a>
                 <a href="genetic_blender.html">Blender Genetic Algorithm</a>
+                <a href="trams.html">Tram Simulator</a>
             </div>
         </div>
-        <div class="dropdown">
+        <!-- <div class="dropdown">
             <button class="dropbtn">IT</button>
             <div class="dropdown-content">
-                <a href="embedded.html">Nothing</a>
+                <a href="index.html">Nothing</a>
             </div>
         </div>
         <div class="dropdown">
             <button class="dropbtn">Cognitive Science</button>
             <div class="dropdown-content">
-                <a href="embedded.html">Nothing</a>
+                <a href="index.html">Nothing</a>
             </div>
-        </div>
+        </div> -->
     
         <a href="about.html">About</a>
         <div class="clock" id="clock"></div>
     </div>
     <script src="scripts.js"></script>
+    <script src="mobile_scripts.css" media="only screen and (max-width: 1380px)"></script>
     
 
     <div class="localnav">
-        <a href="#" onclick="showSection('instruction')">Instruction</a>
-        <a href="#" onclick="showSection('example')">Example</a>
-        <a href="https://github.com/jansaklak">GITHUB_link</a>
+        <a href="#" onclick="showSection('Overview')">Overview</a>
+        <a href="#" onclick="showSection('Prerequisites')">Prerequisites</a>
+        <a href="#" onclick="showSection('Structure')">Structure</a>
+        <a href="#" onclick="showSection('Shapes')">Shape Classes</a>
+        <a href="#" onclick="showSection('Genetic')">Genetic algorithm</a>
+        <a href="#" onclick="showSection('Rendering')">Rendering Function</a>
+        <a href="#" onclick="showSection('Usage')">Usage</a>
+        <a href="https://github.com/jansaklak">GITHUB</a>
     </div>
 
     <div id="content-container">
-        <div id="instruction-section" class="content-section">
+        <div id="Overview-section" class="content-section">
             <div class="documentation">
-                <h2>Code to simulate work of logic gates written in Python.</h2>
-                <h2>Instrukcja użycia:</h2>
-                <p>./tester [opcje]</p>
-                <h2>Opcje:</h2>
-                <p>
-                    -o FOLDER             Ustaw folder wyjściowy na FOLDER (domyślnie OUTPUT) <br/>
-                    -i FILE               Ustaw plik wejściowy na FILE (domyślnie ./a.out)<br/>
-                    -v,fromFile FILE      Ustaw plik z listą programow do uruchomienia<br/>
-                    --args FILE           Plik z argumentami dla testowanych programów<br/>
-                    --cmp FILE            Ustaw plik oczekiwany wyjściowy z którym ma być zgodne wyjście<br/>
-                    --omp                 Skorzystaj z OpenMP<br/>
-                    --mpi                 Skorzystaj z MPI<br/>
-                    -minCore NUM          Ustaw minimalną liczbę rdzeni na NUM<br/>
-                    -c,-maxCore NUM       Ustaw maksymalną liczbę rdzeni na NUM (domyślnie 2)<br/>
-                    -s,-silent            Tryb cichy - brak wypisywania na ekran<br/>
-                    -h, -help             Wyświetl tę instrukcję<br/>
-                </p>
+                <h2>Overview</h2>
+                <p>This project implements a genetic algorithm to optimize the stacking of various 3D shapes—such as cuboids, cones, spheres, and cylinders—within Blender. The primary objectives are to achieve a stable structure with a specified target height and to visualize the evolution of these structures over successive generations.</p>
             </div>
         </div>
 
-        <div id="example-section" class="content-section hidden">
+        <div id="Prerequisites-section" class="content-section hidden">
             <div class="documentation">
-                <h1>Przykładowy plik podsumowujący:</h1>
-                <img src="img/bash_test.jpg" alt="Screenshot">
+                <h2>
+                    Prerequisites:
+                </h2>
+                <ul>
+                    <li>Python</li>
+                    <li>Blender</li> 
+                </ul>
             </div>
         </div>
+
+        <div id="Structure-section" class="content-section hidden">
+            <div class="documentation">
+                <h2>
+                    The project comprises the following components:
+                </h2>
+                <ul>
+                    <li>Shape Classes: Definitions of various 3D shapes with methods to calculate volume, base surface areas, and center of mass.</li>
+                    <li>Algorithm: Implementation of the genetic algorithm to evolve populations of shape stacks towards optimal configurations.</li> 
+                    <li>Function: A function to visualize the stacked shapes within Blender.</li> 
+                </ul>
+            </div>
+        </div>
+
+        <div id="Shapes-section" class="content-section hidden">
+            <div class="documentation">
+                <h2>Each shape class inherits from the base Blocks class and implements methods to compute:</h2>
+                <ul>
+                    <li>Volume (vol): Calculates the volume of the shape.</li>
+                    <li>Upper Base Surface Area (upper_base_surf): Computes the surface area of the upper base.</li>
+                    <li>Lower Base Surface Area (lower_base_surf): Computes the surface area of the lower base.</li>
+                    <li>Center of Mass (get_center_of_mass): Determines the center of mass based on the current height in the stack.</li>
+                </ul>
+                <h2>The available shapes are:</h2>
+                <ul>
+                    <li>Cuboid</li>
+                    <li>Cone</li>
+                    <li>Sphere</li>
+                    <li>Cylinder</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="Genetic-section" class="content-section hidden">
+            <div class="documentation">
+                The GeneticAlgorithm class manages the evolution process with the following parameters:
+                <ul>
+                    <li>pop_size - Population size.</li>
+                    <li>generations - Number of generations to evolve.</li>
+                    <li>mutation_rate - Probability of mutation.</li>
+                    <li>target_height - Desired height of the stacked structure.</li>
+                </ul>
+                Key methods include:
+                <ul>
+                    <li>create_random_block(): Generates a random stack of shapes.</li>
+                    <li>create_random_pop(): Creates an initial population of random shape stacks.</li>
+                    <li>fitness_function(stack): Evaluates the fitness of a shape stack based on contact surface area, total volume, center of mass height, and deviation from the target height.</li>
+                    <li>selection(pop): Selects the top-performing individuals from the population.</li>
+                    <li>crossover(par1, par2): Performs crossover between two parent stacks to produce offspring.</li>
+                    <li>mutation(figure): Applies mutation to a shape stack.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="Rendering-section" class="content-section hidden">
+            <div class="documentation">
+                The render_blocks(blocks) function utilizes Blender's bpy module to visualize the stacked shapes. It:
+                <ul>
+                    <li>Clears the current Blender scene
+                    </li>
+                    <li>Iterates through the list of shapes, adding them to the scene at calculated positions.
+
+                    </li>
+                    <li>Adjusts the position and orientation of each shape based on its properties and the stacking order
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="Usage-section" class="content-section hidden">
+            <div class="documentation">
+                <ol>
+                    <li>Initialize the Genetic Algorithm: Create an instance of the GeneticAlgorithm class with desired parameters.
+                        <h4>algorytm = GeneticAlgorithm(pop_size=100, generations=30, mutation_rate=0.1, target_height=10)
+                        </h4>
+                    </li>
+                    <li>Run the Algorithm: Append the run() method to Blender's frame change handler to execute the algorithm.
+                        <h4>bpy.app.handlers.frame_change_pre.append(algorytm.run())
+                        </h4>
+                    </li>
+                    <li>
+                        Set Animation Frames: Define the number of frames for the animation.
+                        <h4>
+                            frames = 50<br>
+                            bpy.context.scene.frame_end = frames
+                        </h4>
+                    </li>
+                    <li>
+                        Start the Animation: Play the animation within Blender to observe the evolution of the shape stacks.
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+
     </div>
 
     <div id="cursor"></div>
