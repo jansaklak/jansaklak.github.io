@@ -1,123 +1,261 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABC 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600&family=Karla:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <button class="hamburger-menu" aria-label="Toggle menu">
-        &#9776;
-    </button>
-    <nav class="side-menu right-menu">
-        <h1 class="title">ABC 2025</h1>
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Karla', sans-serif;
+    scroll-behavior: smooth;
+    min-width:1000px; 
+}
 
-        <ul id="menu-list">
-            <li class="logo">
-                <a href="#home"><img src="images/logo_avatar.png" alt="Logo" /></a>
-            </li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#organizers">Organizers </a></li>
-            <li><a href="#comitee">Committee </a></li>
-            <li><a href="#speakers">Speakers</a></li>
-            <li><a href="#history">History</a></li>
-            <li><a href="#partners">Partners</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+body {
+    display: flex;
+    
+    font-size: 1.2rem; /* Zwiększamy ogólny rozmiar czcionki na stronie */
+}
 
-    </nav>
-    <main>
-        <section id="home" class="section yellow">
+main {
+    width: calc(100vw - 250px); /* Odejmujemy szerokość menu */
+    height: 100vh;
+    max-width: 100vw;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
 
-            <li class="logo_uj">
-                <a href="https://www.google.com/"><img src="images/logo.png" alt="Uniwersytet" /></a>
-            </li>
-            <h1>XX Science Conference</h1>
-            <h2>Temat konferencji naukowej</h2>
-            
-            
-            <p>Tekst tej sekcji prezentowany na żółtym tle. <strong>Ważne fragmenty</strong> Witaj na stronie.</p>
-        </section>
+/* Ukrywamy pasek przewijania dla Chrome, Safari i Opera */
+main::-webkit-scrollbar {
+    display: none;
+}
 
-        <section id="about" class="section light-turquoise">
-            <h2>About the Conference </h2>
-            <p></p>
-            <p>Date: May 1, 2026</p>
-            <p>Venue: Krakow</p>
-            <p>Join us to ...</p>
-        </section>
+.side-menu {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    width: 250px;
+    background: #ffffff;
+    z-index: 1000;
+    /* overflow: hidden; */
+    border-left: 5px solid #FFCF45; /* Dodana ramka */
+    box-shadow: -5px 0 10px rgba(0, 0, 0, 0.1); /* Lekki cień dla efektu głębi */
+}
 
-        <section id="organizers" class="section dark-turquoise">
-            <h2>Organizers</h2>
-            <p>Organizatorami sa</p>
-            <p>Members of the :</p>
-            <ul>
-                <li>XYZ – Head of the Committee</li>
-                <li>ABC – Vice Head of the Committee</li>
-            </ul>
-            <p>Our Volunteers:</p>
-            <ul>
-                <li>Abc Def</li>
-                <li>Xzy Asd</li>
-            </ul>
-        </section>
+.title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #007986; /* Special color for the title */
+    margin-bottom: 0px; /* Space below the title */
+    text-align: center; /* Centered text */
+}
 
-        <section id="comitee" class="section light">
-            <h2>Scientific Committee </h2>
-            <p> </p>
-            <p>Scientific Committee Members:</p>
-                <ul>Abc Def</ul>
-                <ul>Xzy Asd</ul>
-        </section>
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
-        <section id="speakers" class="section dark-turquoise">
-            <h2>Speakers</h2>
-            <p>Invited speakers:</p>
-        </section>
+.side-menu li {
+    margin: 10px 0;
+}
 
-        <section id="history" class="section light">
-            <h1>History</h1>
-            <div class="scrollable-content">
-            <h2>Early Years</h2>
-                <p>Lorem ipsum odor amet, consectetuer adipiscing elit. Facilisis lacus risus montes laoreet sodales eros.
-                Consectetur sed vitae at vivamus convallis porta pellentesque magnis vitae? Tristique auctor tortor ridiculus iaculis et.
-                Faucibus auctor aliquam finibus, ullamcorper diam dui. Mollis posuere parturient nam a ipsum placerat maximus tincidunt.
-                Venenatis senectus imperdiet maximus felis; platea mi venenatis. Tortor ac turpis montes ad vestibulum taciti curae.
-                Condimentum efficitur aliquet non eleifend class.</p>
-            <h2>Mid Years</h2>
-                <p>Lorem ipsum odor amet, consectetuer adipiscing elit. Facilisis lacus risus montes laoreet sodales eros.
-                Consectetur sed vitae at vivamus convallis porta pellentesque magnis vitae? Tristique auctor tortor ridiculus iaculis et.
-                Faucibus auctor aliquam finibus, ullamcorper diam dui. Mollis posuere parturient nam a ipsum placerat maximus tincidunt.
-                Venenatis senectus imperdiet maximus felis; platea mi venenatis. Tortor ac turpis montes ad vestibulum taciti curae.
-                Condimentum efficitur aliquet non eleifend class.</p>
-            <h2>Recent Years</h2>
-                <p>Lorem ipsum odor amet, consectetuer adipiscing elit. Facilisis lacus risus montes laoreet sodales eros.
-                Consectetur sed vitae at vivamus convallis porta pellentesque magnis vitae? Tristique auctor tortor ridiculus iaculis et.
-                Faucibus auctor aliquam finibus, ullamcorper diam dui. Mollis posuere parturient nam a ipsum placerat maximus tincidunt.
-                Venenatis senectus imperdiet maximus felis; platea mi venenatis. Tortor ac turpis montes ad vestibulum taciti curae.
-                Condimentum efficitur aliquet non eleifend class.</p>
-            <h2>For a more detailed history, please refer to this file: (link) </h2>
-            </div>    
-        </section>
+.side-menu a {
+    color: #A5A4A4;
+    text-decoration: none;
+    font-size: 20px; /* Pozostawiamy rozmiar czcionki menu */
+    display: block;
+    padding: 10px;
+    text-align: center;
+    transition: all 0.5s;
+    position: relative;
+}
 
-        <section id="partners" class="section dark">
-            <h2>Partners and Sponsors</h2>
-            <p>Our Sponsors: </p>
-        </section>
+.side-menu a:hover {
+    color: #FFCF45;
+}
 
-        <section id="contact" class="section dark-turquoise">
-            <h2>Contact</h2>
-            <p>In case of any questions or problems, do not hesitate to contact us via e-mail: abc or through our social media channels.</p>
-            <a href="https://www.facebook.com/yourpage" target="_blank">Facebook</a>
-            <a href="https://www.instagram.com/yourpage" target="_blank">Instagram</a>
-        
-        </section>
+.side-menu a.active {
+    color: #FFCF45;
+}
 
-    </main>
-    <script src="script.js"></script>
+.side-menu a.active::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 100%;
+    background-color: #FFCF45;
+}
 
+.section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 60px;
+    scroll-snap-align: start;
+}
 
-</body>
-</html>
+.scrollable-content {
+    max-height: 80vh;
+    overflow-y: auto;
+    padding-right: 50px;
+    text-align: justify;
+    font-size: 1.4rem;
+}
+
+.yellow { 
+    background: #FFCF45;
+    color: black;
+    background-image: url('shapes/CCSC_kształt-02.png'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+}
+
+.light-turquoise { 
+    background: #97BFBC;
+    color: black;
+    background-image: url('shapes/CCSC_kształt-06.png'); 
+    background-size:auto;
+    background-position: top;
+    background-repeat: no-repeat;
+}
+
+.dark-turquoise {
+    background: #007986;
+    color: white;
+    background-image: url('shapes/CCSC_kształt-07a.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.light { 
+    background: #ffffff;
+    color: rgb(0, 0, 0);
+    background-image: url('shapes/CCSC_kształt-01r.png'); 
+    background-size: 50%; /* Zmniejszenie obrazu do 50% */
+    background-position: right;
+    background-repeat: no-repeat;
+}
+
+.dark { 
+    background: #1E1E1E;
+    color: white;
+    background-image: url('shapes/CCSC_kształt-06.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+h1 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    margin-bottom: 50px;
+    font-size: 2rem; /* Zwiększamy rozmiar czcionki nagłówka */
+}
+
+h2 {
+    font-family: 'Karla', sans-serif;
+    font-weight: 1000;
+    margin-bottom: 40px;
+    font-size: 1.7rem; /* Zwiększamy rozmiar czcionki dla h2 */
+}
+
+p {
+    font-family: 'Karla', sans-serif;
+    font-weight: 800;
+    max-width: 1200px;
+    line-height: 1.7;
+    opacity: 0; 
+    transform: translateY(-20px); 
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    font-size: 1.5rem; /* Zwiększamy rozmiar czcionki dla paragrafów */
+}
+
+logo_uj {
+    max-width: 150px;
+
+}
+
+.side-menu .logo {
+    text-align: center; /* Wyśrodkowanie logo w menu */
+    margin-bottom: 30px; /* Dodanie marginesu pod logo */
+}
+
+.side-menu .logo img {
+    width: 100%; /* Zmniejszenie rozmiaru logo w zależności od potrzeb */
+    max-width: 150px; /* Ustalenie maksymalnej szerokości logo */
+    height: auto; /* Utrzymanie proporcji logo */
+}
+
+.hamburger-menu {
+    display: none; /* Domyślnie ukrywamy na dużych ekranach */
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    font-size: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+#home {
+    position: relative; /* Ustalamy pozycję kontenera sekcji, aby logo było względem tej sekcji */
+}
+
+.logo_uj {
+    position: absolute;
+    top: 20px; /* Odległość od górnej krawędzi sekcji */
+    left: 20px; /* Odległość od prawej krawędzi sekcji */
+    list-style: none;
+}
+
+.logo_uj img {
+    max-width: 100px; /* Opcjonalnie: Zmieniamy rozmiar logo */
+    height: auto;
+}
+
+@media (max-width: 768px) {
+
+    main {
+        width: calc(100vw); /* Odejmujemy szerokość menu */
+        height: 100vh;
+        overflow-y: scroll;
+        scroll-snap-type: y mandatory;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+    }
+
+    .side-menu {
+        position: fixed;
+        right: -100%; /* Ukrywamy menu całkowicie */
+        width: 80%; /* Możemy dostosować szerokość */
+        max-width: 300px;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.95);
+        transition: right 0.3s ease-in-out;
+    }
+
+    .side-menu.active {
+        right: 0; /* Pokazujemy menu */
+    }
+
+    .hamburger-menu {
+        display: block; /* Pokazujemy przycisk na małych ekranach */
+    }
+
+    /* Blokujemy możliwość przewijania, gdy menu jest otwarte */
+    body.menu-open {
+        overflow: hidden;
+    }
+}
