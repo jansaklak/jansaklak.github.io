@@ -3,12 +3,11 @@ html, body {
     padding: 0;
     font-family: 'Karla', sans-serif;
     scroll-behavior: smooth;
-    min-width:1000px; 
 }
 
 body {
     display: flex;
-    
+    background-repeat: repeat-y;
     font-size: 1.2rem; /* Zwiększamy ogólny rozmiar czcionki na stronie */
 }
 
@@ -16,7 +15,7 @@ main {
     width: calc(100vw - 250px); /* Odejmujemy szerokość menu */
     height: 100vh;
     max-width: 100vw;
-    overflow-y: scroll;
+    overflow-y: hidden;
     scroll-snap-type: y mandatory;
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE and Edge */
@@ -32,10 +31,11 @@ main::-webkit-scrollbar {
     right: 0;
     top: 0;
     height: 100vh;
+    max-height: 100vh;
     width: 250px;
     background: #ffffff;
     z-index: 1000;
-    /* overflow: hidden; */
+    overflow-y: auto;
     border-left: 5px solid #FFCF45; /* Dodana ramka */
     box-shadow: -5px 0 10px rgba(0, 0, 0, 0.1); /* Lekki cień dla efektu głębi */
 }
@@ -144,7 +144,7 @@ main::-webkit-scrollbar {
     background-image: url('shapes/CCSC_kształt-01r.png'); 
     background-size: 50%; /* Zmniejszenie obrazu do 50% */
     background-position: right;
-    background-repeat: no-repeat;
+    background-repeat: repeat-y;
 }
 
 .dark { 
@@ -167,12 +167,14 @@ h2 {
     font-family: 'Karla', sans-serif;
     font-weight: 1000;
     margin-bottom: 40px;
+    font-weight: bold;
+
     font-size: 1.7rem; /* Zwiększamy rozmiar czcionki dla h2 */
 }
 
 p {
     font-family: 'Karla', sans-serif;
-    font-weight: 800;
+    font-weight: 400;
     max-width: 1200px;
     line-height: 1.7;
     opacity: 0; 
@@ -227,13 +229,26 @@ logo_uj {
 
 @media (max-width: 768px) {
 
+    body{
+        font-size: 1rem;
+        overflow-x: hidden;
+    }
+
     main {
         width: calc(100vw); /* Odejmujemy szerokość menu */
         height: 100vh;
+        width: 100%;
         overflow-y: scroll;
         scroll-snap-type: y mandatory;
         scrollbar-width: none; /* Firefox */
         -ms-overflow-style: none; /* IE and Edge */
+    }
+
+    .scrollable-content {
+        max-height: 85vh; /* Większy panel do przewijania */
+        padding-right: 5px;
+        padding-left: 5px;
+        font-size: 1rem;
     }
 
     .side-menu {
