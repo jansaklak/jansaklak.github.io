@@ -56,7 +56,6 @@ function loadFile() {
     };
     reader.readAsText(file);
 }
-
 // Show question function
 function showQuestion() {
     if (currentQuestionIndex >= questions.length) {
@@ -67,9 +66,13 @@ function showQuestion() {
     const [questionText, answerData] = questions[currentQuestionIndex];
     console.log('Displaying question:', questionText); // Debugging line for question display
     
-    document.getElementById('counter')?.setAttribute('innerText', `Question ${currentQuestionIndex + 1} of ${questions.length}`);
-    document.getElementById('score')?.setAttribute('innerText', `Score: ${score}`);
-    document.getElementById('question')?.setAttribute('innerText', questionText);
+    const counterEl = document.getElementById('counter');
+    const scoreEl = document.getElementById('score');
+    const questionEl = document.getElementById('question');
+    
+    if (counterEl) counterEl.innerText = `Question ${currentQuestionIndex + 1} of ${questions.length}`;
+    if (scoreEl) scoreEl.innerText = `Score: ${score}`;
+    if (questionEl) questionEl.innerText = questionText;
     
     const answersDiv = document.getElementById('answers');
     if (!answersDiv) return;
@@ -77,13 +80,16 @@ function showQuestion() {
     answersDiv.innerHTML = '';
 
     if (typeof answerData === 'string') {
+        // Yes/No questions
         ['TAK', 'NIE'].forEach(option => {
             const btn = document.createElement('button');
             btn.innerText = option;
+            btn.className = 'answer-button';
             btn.onclick = () => submitAnswer(option === answerData);
             answersDiv.appendChild(btn);
         });
     } else {
+        // Multiple choice questions
         Object.entries(answerData.odpowiedzi).forEach(([key, value]) => {
             const label = document.createElement('label');
             label.classList.add('answer-label');
@@ -130,13 +136,17 @@ function submitAnswer(isCorrect) {
 
 // Show final score function
 function showFinalScore() {
-    const questionElement = document.getElementById('question');
-    const answersElement = document.getElementById('answers');
-    const submitElement = document.getElementById('submit');
+    const counterEl = document.getElementById('counter');
+    const questionEl = document.getElementById('question');
+    const answersEl = document.getElementById('answers');
+    const submitEl = document.getElementById('submit');
+    const scoreEl = document.getElementById('score');
     
-    if (questionElement) questionElement.innerText = `Quiz Finished! Score: ${score}/${questions.length}`;
-    if (answersElement) answersElement.innerHTML = '';
-    if (submitElement) submitElement.style.display = 'none';
+    if (counterEl) counterEl.innerText = '';
+    if (questionEl) questionEl.innerText = `Quiz Finished!`;
+    if (scoreEl) scoreEl.innerText = `Final Score: ${score}/${questions.length}`;
+    if (answersEl) answersEl.innerHTML = '';
+    if (submitEl) submitEl.style.display = 'none';
 }
 
 function updateClock() {
