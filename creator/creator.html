@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kreator Prezentacji</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600&family=Karla:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- USTAWIENIA GŁÓWNE --- */
+        :root {
+            --white: #FFFFFF;
+            --black: #000000;
+            --orange: #FF8C42;
+            --light-orange: #F2E6D9;
+            --gray-lavender: #8C7B9E;
+            --gray-cyan: #3E7C7C;
+            --dark-cyan: #114949;
+            --dark-indigo: #1f1942;
+            --light-gray: #A5A4A4;
+
+            /* Zmienne wymiarów slajdu */
+            --slide-width: 297mm;
+            --slide-height: 210mm;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Karla', sans-serif;
+            background: #e0e0e0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .light { 
+            background-color: var(--light-orange) !important;
+            color: var(--black) !important;
+            background-image: url('shapes/shape10.png') !important; 
+            background-size: cover !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important; 
+        }
+
+        .dark { 
+            background-color: var(--orange) !important;
+            color: var(--white) !important;
+            background-image: url('shapes/shape10.png') !important; 
+            background-size: cover !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important; 
+        }
+
+        .yellow { 
+            background-color: var(--gray-lavender) !important;
+            color: var(--black) !important;
+            background-image: url('shapes/shape20.png') !important; 
+            background-size: cover !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important; 
+        }
+
+        .dark-yellow { 
+            background-color: var(--light-orange) !important;
+            color: var(--white) !important;
+            background-image: url('shapes/shape20.png') !important; 
+            background-size: cover !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important; 
+        }
+
+        .blue { 
+            background-color: var(--light-gray) !important;
+            color: var(--black) !important;
+            background-image: url('shapes/shape30.png') !important; 
+            background-size: cover !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important; 
+        }
+
+        .dark-blue { 
+            background-color: var(--dark-indigo) !important;
+            color: var(--white) !important;
+            background-image: url('shapes/shape30.png') !important; 
+            background-size: cover !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important; 
+        }
+
+        /* --- PANEL EDYTORA (LEWA STRONA) --- */
+        #editor-panel {
+            width: 350px;
+            background: #fff;
+            padding: 20px;
+            overflow-y: auto;
+            border-right: 2px solid #ccc;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 10;
+        }
+
+        .global-settings {
+            border: 2px solid var(--dark-cyan);
+            background: #eefefe;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .control-group {
+            border: 1px solid #ddd;
+            padding: 10px;
+            background: #f8f8f8;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        label { font-weight: bold; font-size: 0.9rem; display: block; margin-top: 5px; }
+        select, textarea { width: 100%; padding: 5px; margin-top: 3px; }
+        textarea { height: 80px; resize: vertical; }
+
+        .logo-toggle {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+            padding: 5px;
+            background: #e9e9e9;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .logo-toggle input { cursor: pointer; }
+
+        button { padding: 10px; cursor: pointer; border: none; font-weight: bold; border-radius: 4px; }
+        .btn-add { background: var(--dark-cyan); color: white; width: 100%; }
+        .btn-del { background: #d9534f; color: white; margin-top: 5px; font-size: 0.8rem; }
+        
+        .btn-print { 
+            background: var(--orange); 
+            color: white; 
+            font-size: 1.2rem; 
+            margin-top: auto; 
+            width: 100%; 
+            padding: 15px;
+            border: 2px solid #333;
+        }
+        .btn-print:hover { background: #e07b3b; }
+
+        /* --- PODGLĄD (PRAWA STRONA) --- */
+        #preview-panel {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background: #525659;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* Pojedynczy slajd na ekranie */
+        .slide {
+            width: var(--slide-width);
+            height: var(--slide-height);
+            background: white;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+            transform-origin: top center; 
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 40px 60px;
+            transition: width 0.3s, height 0.3s;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        /* --- UKŁADY TREŚCI --- */
+        .layout-full { text-align: left; }
+        
+        .layout-split-left { 
+            display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; 
+        }
+        .layout-split-left .content { grid-column: 1; }
+
+        .layout-split-right { 
+            display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; 
+        }
+        .layout-split-right .content { grid-column: 2; text-align: right; }
+
+        /* --- TREŚĆ WEWNĘTRZNA --- */
+        .slide h1 { font-family: 'Outfit', sans-serif; font-size: 3rem; margin-bottom: 0.5em; }
+        .slide h2 { font-family: 'Karla', sans-serif; font-size: 2.2rem; margin-bottom: 0.5em; }
+        .slide p, .slide li { font-family: 'Karla', sans-serif; font-size: 1.3rem; line-height: 1.5; }
+        
+        .slide img { 
+            max-width: 100%; 
+            height: auto; 
+            border-radius: 5px; 
+        }
+        
+        .slide table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 1.1rem; }
+        .slide td, .slide th { border: 2px solid currentColor; padding: 8px; }
+
+        /* --- LOGO --- */
+        .slide .logo_uj {
+            position: absolute;
+            top: 30px; 
+            left: 30px; 
+            z-index: 100;
+        }
+        
+        .slide .logo_uj img {
+            width: 100px !important;    
+            max-width: 100px !important;
+            height: auto !important;
+            border-radius: 0 !important; 
+            display: block;
+        }
+
+        /* --- DRUK --- */
+        @media print {
+            #editor-panel { display: none !important; }
+
+            body {
+                margin: 0 !important;
+                padding: 0 !important;
+                background: white !important;
+                height: auto !important;
+                overflow: visible !important;
+                display: block !important;
+            }
+
+            #preview-panel {
+                padding: 0 !important;
+                margin: 0 !important;
+                background: white !important;
+                display: block !important;
+                overflow: visible !important;
+            }
+
+            @page {
+                size: A4 landscape;
+                margin: 0;
+            }
+
+            .slide {
+                width: var(--slide-width) !important;
+                height: var(--slide-height) !important;
+                margin: 0 auto !important; 
+                page-break-after: always;
+                box-shadow: none !important;
+                transform: none !important;
+                border: none !important;
+                overflow: hidden !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .slide:last-child { page-break-after: auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="editor-panel">
+        <h2 style="margin-top:0">Edytor</h2>
+        
+        <div class="global-settings">
+            <label style="margin-top:0">Format (Proporcje):</label>
+            <select id="aspectRatioSelect" onchange="changeAspectRatio(this.value)">
+                <option value="A4">Standard A4 (Domyślny)</option>
+                <option value="16:9">16:9 (Szeroki ekran)</option>
+                <option value="4:3">4:3 (Klasyczny)</option>
+                <option value="1:1">1:1 (Kwadrat)</option>
+            </select>
+        </div>
+
+        <div id="controls-container"></div>
+        <button class="btn-add" onclick="addSlide()">+ Dodaj Slajd</button>
+        <button class="btn-print" onclick="printToPDF()">ZAPISZ JAKO PDF</button>
+        <p style="font-size:0.8rem; color:#666; text-align:center;">
+            Wybierz "Zapisz jako PDF" i zaznacz "Grafika w tle".
+        </p>
+    </div>
+
+    <div id="preview-panel"></div>
+
+    <script>
+        let slides = [
+            { 
+                id: 1, 
+                theme: 'light', 
+                layout: 'full', 
+                showLogo: true, 
+                html: '<h1>Witaj na WWWW 2026</h1><p>Wpisz tutaj swój tekst...</p>' 
+            }
+        ];
+
+        function changeAspectRatio(ratio) {
+            const root = document.documentElement;
+            if (ratio === '16:9') {
+                root.style.setProperty('--slide-width', '297mm');
+                root.style.setProperty('--slide-height', '167mm'); 
+            } else if (ratio === '4:3') {
+                root.style.setProperty('--slide-width', '280mm');
+                root.style.setProperty('--slide-height', '210mm');
+            } else if (ratio === '1:1') {
+                root.style.setProperty('--slide-width', '210mm');
+                root.style.setProperty('--slide-height', '210mm');
+            } else {
+                root.style.setProperty('--slide-width', '297mm');
+                root.style.setProperty('--slide-height', '210mm');
+            }
+        }
+
+        // --- ROZDZIELONE FUNKCJE RENDEROWANIA ---
+
+        // 1. Renderowanie tylko panelu z przyciskami (Edytor)
+        function renderControls() {
+            const controls = document.getElementById('controls-container');
+            controls.innerHTML = ''; // Czyścimy tylko edytor
+
+            slides.forEach((slide, index) => {
+                const controlDiv = document.createElement('div');
+                controlDiv.className = 'control-group';
+                controlDiv.innerHTML = `
+                    <strong>Slajd ${index + 1}</strong>
+                    <label>Styl:</label>
+                    <select onchange="updateSlide(${index}, 'theme', this.value)">
+                        <option value="light" ${slide.theme=='light'?'selected':''}>Jasny (Biały)</option>
+                        <option value="dark" ${slide.theme=='dark'?'selected':''}>Ciemny (Granat)</option>
+                        <option value="yellow" ${slide.theme=='yellow'?'selected':''}>Jasny (Pomarańcz)</option>
+                        <option value="dark-yellow" ${slide.theme=='dark-yellow'?'selected':''}>Ciemny (Pomarańcz)</option>
+                        <option value="blue" ${slide.theme=='blue'?'selected':''}>Jasny (Niebieski)</option>
+                        <option value="dark-blue" ${slide.theme=='dark-blue'?'selected':''}>Ciemny (Niebieski)</option>
+                    </select>
+                    
+                    <label>Układ:</label>
+                    <select onchange="updateSlide(${index}, 'layout', this.value)">
+                        <option value="full" ${slide.layout=='full'?'selected':''}>Na całą stronę</option>
+                        <option value="split-left" ${slide.layout=='split-left'?'selected':''}>Tylko lewa połowa</option>
+                        <option value="split-right" ${slide.layout=='split-right'?'selected':''}>Tylko prawa połowa</option>
+                    </select>
+
+                    <label class="logo-toggle">
+                        <input type="checkbox" 
+                               ${slide.showLogo ? 'checked' : ''} 
+                               onchange="updateSlide(${index}, 'showLogo', this.checked)">
+                        Pokaż Logo
+                    </label>
+
+                    <label>Treść (HTML):</label>
+                    <textarea oninput="updateSlide(${index}, 'html', this.value)">${slide.html}</textarea>
+                    
+                    <button class="btn-del" onclick="removeSlide(${index})">Usuń</button>
+                `;
+                controls.appendChild(controlDiv);
+            });
+        }
+
+        // 2. Renderowanie tylko podglądu slajdów (Prawa strona)
+        function renderPreview() {
+            const preview = document.getElementById('preview-panel');
+            preview.innerHTML = ''; // Czyścimy podgląd
+
+            slides.forEach((slide) => {
+                const slideDiv = document.createElement('div');
+                slideDiv.className = `slide ${slide.theme} layout-${slide.layout}`;
+                
+                if (slide.showLogo) {
+                    const logoDiv = document.createElement('div');
+                    logoDiv.className = 'logo_uj';
+                    logoDiv.innerHTML = '<img src="images/logo.jpg" alt="Logo">';
+                    slideDiv.appendChild(logoDiv);
+                }
+
+                const contentDiv = document.createElement('div');
+                contentDiv.className = 'content';
+                contentDiv.innerHTML = slide.html; 
+                
+                slideDiv.appendChild(contentDiv);
+                preview.appendChild(slideDiv);
+            });
+        }
+
+        // --- LOGIKA AKTUALIZACJI ---
+
+        function updateSlide(index, key, value) {
+            // 1. Zaktualizuj dane w pamięci
+            slides[index][key] = value;
+
+            // 2. Odśwież ZAWSZE podgląd (prawą stronę)
+            renderPreview(); 
+
+            // 3. Odśwież edytor (lewą stronę) TYLKO jeśli NIE piszemy tekstu.
+            // Dzięki temu input, w którym piszesz, nie jest niszczony i nie gubi kursora.
+            if (key !== 'html') {
+                // Opcjonalne: można to wykomentować, jeśli zmiana selecta też ma nie przerysowywać reszty
+                // Ale dla bezpieczeństwa spójności UI można zostawić.
+                // renderControls(); 
+            }
+        }
+
+        function addSlide() {
+            slides.push({ 
+                id: Date.now(), 
+                theme: 'dark-turquoise', 
+                layout: 'full', 
+                showLogo: false, 
+                html: '<h2>Nowy slajd</h2><ul><li>Punkt 1</li><li>Punkt 2</li></ul>' 
+            });
+            // Przy dodawaniu/usuwaniu musimy przerysować WSZYSTKO
+            renderControls();
+            renderPreview();
+            
+            // Scroll na dół
+            const editor = document.getElementById('editor-panel');
+            setTimeout(() => editor.scrollTop = editor.scrollHeight, 100);
+        }
+
+        function removeSlide(index) {
+            if(slides.length > 1) {
+                slides.splice(index, 1);
+                // Przy usuwaniu też przerysowujemy wszystko
+                renderControls();
+                renderPreview();
+            } else {
+                alert("Zostaw chociaż jeden slajd!");
+            }
+        }
+
+        function printToPDF() {
+            window.print();
+        }
+
+        // Start (pierwsze uruchomienie)
+        renderControls();
+        renderPreview();
+
+    </script>
+</body>
+</html>
