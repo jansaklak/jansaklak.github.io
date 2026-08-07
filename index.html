@@ -1,102 +1,610 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main</title>
-    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="mobile.css" media="only screen and (max-width: 1380px)">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jan Sakłak — Software & Systems Engineer</title>
+  <meta name="description"
+    content="Engineering Portfolio & CV of Jan Sakłak: Master's student in Applied Computer Science at Jagiellonian University. Backend, Embedded Systems, Distributed Environments, and Neurophysiological Data Analysis.">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
-
-
 <body>
+  <!-- Canvas Background Effect -->
+  <canvas id="bg-canvas"></canvas>
+
+  <div class="app-container">
+    <!-- Header / Navbar -->
+    <header class="navbar glass">
+      <div class="logo">
+        <span class="logo-icon"><i class="fa-solid fa-code-branch"></i></span>
+        <span class="logo-text">Jan Sakłak</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#terminal" class="nav-item active"><i class="fa-solid fa-terminal"></i> Terminal Gateway</a>
+        <a href="#embedded" class="nav-item"><i class="fa-solid fa-cpu"></i> EmbeddedResource</a>
+        <a href="#tram" class="nav-item"><i class="fa-solid fa-train-subway"></i> TramSimulator</a>
+        <a href="#neuro" class="nav-item"><i class="fa-solid fa-brain"></i> Neuroglancer</a>
+        <a href="#skills" class="nav-item"><i class="fa-solid fa-layer-group"></i> Tech Stack</a>
+      </nav>
+      <div class="header-actions">
+        <a href="https://github.com/jansaklak" target="_blank" class="btn btn-sm btn-outline"><i
+            class="fa-brands fa-github"></i> GitHub</a>
+        <a href="https://www.linkedin.com/in/jansaklak/" target="_blank" class="btn btn-sm btn-glass"><i
+            class="fa-brands fa-linkedin"></i> LinkedIn</a>
+      </div>
+    </header>
 
 
-    <div class="topnav">
-        <a href="index.html">Main</a>
-        <div class="dropdown">
-            <button class="dropbtn">Apps</button>
-            <div class="dropdown-content">
-                <a href="javascript:void(0)" id="open-calculator-link">Calculator</a>
-                <a href="quiz.html">Quiz</a>
-                <a href="pong.html">Ping-Pong</a>
+
+    <!-- Content Stack: Direct Project Subsections -->
+    <main class="main-content">
+
+      <!-- SUBSECTION 1: Terminal Gateway Emulator (SWAPPED TO #1) -->
+      <section id="terminal" class="project-subsection">
+        <div class="project-detail-card glass">
+          <div class="project-header">
+            <div class="project-title-group">
+              <div class="project-badge purple"><i class="fa-solid fa-terminal"></i> Master's Thesis Project • Security
+                & Docker Orchestration</div>
+              <h2 class="project-name">1. Terminal Gateway Emulator</h2>
+              <p class="project-tagline">Developing a Master's thesis project enabling secure multi-user access to
+                isolated lab environments running on Docker pods connected via TCP. Implementing server orchestration
+                using Python and building a robust client application in Java with JediTerm.</p>
             </div>
+            <div class="project-links">
+              <a href="https://github.com/jansaklak/Terminal_Emulator" target="_blank" class="tech-pill repo-link"><i
+                  class="fa-brands fa-github"></i> View Repository</a>
+              <span class="tech-pill"><i class="fa-brands fa-java"></i> Java 17+ / JavaFX 20</span>
+              <span class="tech-pill"><i class="fa-brands fa-docker"></i> Docker PTY</span>
+              <span class="tech-pill"><i class="fa-solid fa-network-wired"></i> TCP JSON Protocol</span>
+            </div>
+          </div>
+
+          <!-- Media Showcase -->
+          <div class="media-gallery-grid">
+            <div class="media-frame glass">
+              <img src="images/terminal/selecting.png" alt="Terminal Gateway Client Session Selection"
+                class="project-media-img">
+              <div class="media-caption"><i class="fa-solid fa-list-check"></i> JavaFX Interface — Session Environment
+                Selector (Linux Bash / MySQL)</div>
+            </div>
+            <div class="media-frame glass">
+              <img src="images/terminal/terminal_running.png" alt="Terminal Gateway Running Session Screenshot"
+                class="project-media-img">
+              <div class="media-caption"><i class="fa-solid fa-terminal"></i> Embedded JediTerm Engine — Live PTY
+                Session Inside Isolated Docker Container</div>
+            </div>
+          </div>
+
+          <div class="project-body-grid">
+            <div class="project-info">
+              <h4><i class="fa-solid fa-shield-halved"></i> Key Features & System Architecture</h4>
+              <ul class="feature-list">
+                <li>
+                  <i class="fa-solid fa-check-circle purple"></i>
+                  <div>
+                    <strong>Docker Container Isolation:</strong>
+                    Every user receives an isolated Linux PTY environment (Bash or MySQL) preventing host system
+                    compromise.
+                  </div>
+                </li>
+                <li>
+                  <i class="fa-solid fa-check-circle purple"></i>
+                  <div>
+                    <strong>Admin Control & Session Monitoring:</strong>
+                    Designing an admin panel for monitoring active sessions, managing user access, and bulk importing
+                    users.
+                  </div>
+                </li>
+                <li>
+                  <i class="fa-solid fa-check-circle purple"></i>
+                  <div>
+                    <strong>JediTerm + SwingNode Integration:</strong>
+                    Fully functional JetBrains terminal component embedded in JavaFX with ANSI color, monospaced font,
+                    and cursor control.
+                  </div>
+                </li>
+                <li>
+                  <i class="fa-solid fa-check-circle purple"></i>
+                  <div>
+                    <strong>TCP Protocol & JSON Auth:</strong>
+                    Custom communication protocol featuring Auth Handshake, TTY data streaming, and dynamic window
+                    resize frames (WINCH).
+                  </div>
+                </li>
+                <li>
+                  <i class="fa-solid fa-check-circle purple"></i>
+                  <div>
+                    <strong>Session & Pseudoterminal Management:</strong>
+                    Low-level handling of POSIX master/slave pair (/dev/ptmx) on the Python server with seamless session
+                    restarts.
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Code Showcase -->
+            <div class="project-visual">
+              <div class="code-window glass">
+                <div class="window-header">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                  <span class="window-title">TerminalClient.java — JavaFX JediTerm Controller</span>
+                </div>
+                <pre class="code-body"><code><span class="token-comment">// Connect to Terminal Gateway over TCP Socket</span>
+<span class="token-keyword">public class</span> <span class="token-title">TerminalClient</span> {
+    <span class="token-keyword">public void</span> startSession(String host, <span class="token-keyword">int</span> port) {
+        Socket socket = <span class="token-keyword">new</span> Socket(host, port);
+        JSONProtocol.sendAuthHandshake(socket, username, sessionConfig);
+        
+        <span class="token-comment">// Embed JediTerm widget into JavaFX scene graph via SwingNode</span>
+        SwingNode swingNode = <span class="token-keyword">new</span> SwingNode();
+        JediTermWidget widget = <span class="token-keyword">new</span> JediTermWidget(socket.getInputStream(), socket.getOutputStream());
+        swingNode.setContent(widget);
+    }
+}</code></pre>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="dropdown">
-            <button class="dropbtn">Documentations</button>
-            <div class="dropdown-content">
-                <a href="moviedb.html">Movie database</a>
-                <a href="embedded_sim.html">Embedded Resource Simulator</a>
-                <a href="logic_py.html">Logic gates simulator</a>
-                <a href="tester_bash.html">BASH tester</a>
-                <a href="genetic_blender.html">Blender Genetic Algorithm</a>
-                <a href="trams.html">Tram Simulator</a>
+      </section>
+
+      <!-- SUBSECTION 2: Embedded Resource Task Simulator (SWAPPED TO #2) -->
+      <section id="embedded" class="project-subsection">
+        <div class="project-detail-card glass">
+          <div class="project-header">
+            <div class="project-title-group">
+              <div class="project-badge cyan"><i class="fa-solid fa-microchip"></i> Embedded Systems & C++17
+                Optimization</div>
+              <h2 class="project-name">2. Embedded Resource Task Simulator</h2>
+              <p class="project-tagline">Engineered a high-performance C++17 simulation engine for task scheduling and
+                resource optimization in resource-constrained embedded systems. Built an interactive Web GUI featuring
+                real-time DAG graph execution, strategy benchmarks, and Gantt charts.</p>
             </div>
-        </div>
-        <!-- <div class="dropdown">
-            <button class="dropbtn">IT</button>
-            <div class="dropdown-content">
-                <a href="index.html">Nothing</a>
+            <div class="project-links">
+              <a href="https://github.com/jansaklak/EmbeddedResourceSimulator" target="_blank"
+                class="tech-pill repo-link"><i class="fa-brands fa-github"></i> View Repository</a>
+              <span class="tech-pill"><i class="fa-solid fa-code"></i> C++17 Engine</span>
+              <span class="tech-pill"><i class="fa-brands fa-python"></i> Python REST API</span>
+              <span class="tech-pill"><i class="fa-brands fa-js"></i> Vanilla Web GUI</span>
             </div>
-        </div>
-        <div class="dropdown">
-            <button class="dropbtn">Cognitive Science</button>
-            <div class="dropdown-content">
-                <a href="index.html">Nothing</a>
+          </div>
+
+          <!-- Media Showcase -->
+          <div class="media-gallery-grid">
+            <div class="media-frame glass">
+              <img src="images/embedded/main.png" alt="EmbeddedResource Simulator Web GUI Screenshot"
+                class="project-media-img">
+              <div class="media-caption"><i class="fa-solid fa-camera"></i> Web GUI Interface — Real-Time DAG Task Graph
+                & Gantt Chart Simulation</div>
             </div>
-        </div> -->
+            <div class="media-frame glass">
+              <video controls autoplay muted loop playsinline class="project-media-video">
+                <source src="images/embedded/embedded.mov" type="video/quicktime">
+                <source src="images/embedded/embedded.mov" type="video/mp4">
+                Your browser does not support HTML5 video playback.
+              </video>
+              <div class="media-caption"><i class="fa-solid fa-film"></i> Video Demo — Real-Time Playback & Hardware
+                Core Execution</div>
+            </div>
+          </div>
+
+          <div class="project-body-grid">
+            <div class="project-info">
+              <h4><i class="fa-solid fa-bullseye"></i> Key Features & System Architecture</h4>
+              <ul class="feature-list">
+                <li>
+                  <i class="fa-solid fa-check-circle cyan"></i>
+                  <div>
+                    <strong>Mathematical DAG Modeling:</strong>
+                    Application representation as a Directed Acyclic Graph G = (V, E) alongside Hardware Cores (HC) and
+                    Processing Elements (PE).
+                  </div>
+                </li>
+                <li>
+                  <i class="fa-solid fa-check-circle cyan"></i>
+                  <div>
+                    <strong>Time & Cost Execution Matrices:</strong>
+                    Objective function computation across execution time t(T_i, H_j) and execution cost c(T_i, H_j) with
+                    dynamic penalty functions.
+                  </div>
+                </li>
+                <li>
+                  <i class="fa-solid fa-check-circle cyan"></i>
+                  <div>
+                    <strong>8 Proprietary Scheduling Strategies:</strong>
+                    S1 (Min-Time Dedicated), S2 (Min-Cost Dedicated), S3 (Instance Reuse), S5 (BFS Level-Order), S6
+                    (Critical Path Greedy), S8 (Cost-Time Tradeoff with Penalty).
+                  </div>
+                </li>
+                <li>
+                  <i class="fa-solid fa-check-circle cyan"></i>
+                  <div>
+                    <strong>Real-Time Live Simulation:</strong>
+                    Playback controls (Play, Pause, Step, Reset, tempo slider 20ms - 1000ms, speed shortcuts 0.5x to
+                    10x) and dynamic CPU core cards.
+                  </div>
+                </li>
+                <li>
+                  <i class="fa-solid fa-check-circle cyan"></i>
+                  <div>
+                    <strong>Parallel Multi-Core Benchmarks & JSON Export:</strong>
+                    Asynchronous Python REST server executing parallel simulation benchmarks across cores and exporting
+                    batch JSON data for analysis.
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Code & Matrix Showcase -->
+            <div class="project-visual">
+              <div class="code-window glass">
+                <div class="window-header">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                  <span class="window-title">main.cpp — C++17 Scheduler Engine</span>
+                </div>
+                <pre class="code-body"><code><span class="token-comment">// Run simulation strategy S8</span>
+<span class="token-keyword">int</span> main(<span class="token-keyword">int</span> argc, <span class="token-keyword">char</span>* argv[]) {
+    TaskSchedulerSimulator simulator;
+    simulator.loadConfig(<span class="token-string">"data/graph20.dat"</span>);
     
-        <a href="about.html">About</a>
-        <div class="clock" id="clock"></div>
-    </div>
-    <script src="scripts.js"></script>
-    <script src="mobile_scripts.css" media="only screen and (max-width: 1380px)"></script>
-    <div id="cursor"></div>
-
-    <div class="documentation">
-        <h2> Welcome to main site.  </h2>
-
-    </div>
-
-
+    <span class="token-comment">// Critical path calculation & penalty-refined allocation</span>
+    ScheduleResult result = simulator.runStrategy(<span class="token-number">8</span>);
+    result.exportToJSON(<span class="token-string">"gantt_data.json"</span>);
     
+    std::cout &lt;&lt; <span class="token-string">"Time: "</span> &lt;&lt; result.totalTime 
+              &lt;&lt; <span class="token-string">" Cost: "</span> &lt;&lt; result.totalCost &lt;&lt; std::endl;
+}</code></pre>
+              </div>
+
+              <div class="strategy-matrix glass">
+                <h5><i class="fa-solid fa-chart-simple"></i> C++17 Scheduling Strategy Matrix</h5>
+                <div class="matrix-table">
+                  <div class="matrix-row header">
+                    <span>Strategy</span>
+                    <span>Time</span>
+                    <span>Cost</span>
+                    <span>CPU Utilization</span>
+                  </div>
+                  <div class="matrix-row">
+                    <span class="st-name">S1 (Min-Time Dedicated)</span>
+                    <span class="badge-mini green">Shortest</span>
+                    <span class="badge-mini red">High</span>
+                    <span>100% (No reuse)</span>
+                  </div>
+                  <div class="matrix-row">
+                    <span class="st-name">S2 (Min-Cost Dedicated)</span>
+                    <span class="badge-mini red">Long</span>
+                    <span class="badge-mini green">Minimal</span>
+                    <span>Low</span>
+                  </div>
+                  <div class="matrix-row highlight">
+                    <span class="st-name">S8 (Cost-Time Tradeoff)</span>
+                    <span class="badge-mini cyan">Optimal</span>
+                    <span class="badge-mini cyan">Balanced</span>
+                    <span class="badge-mini purple">Pareto Fit</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SUBSECTION 3: TramSimulator (MPK Kraków) -->
+      <section id="tram" class="project-subsection">
+        <div class="project-detail-card glass">
+          <div class="project-header">
+            <div class="project-title-group">
+              <div class="project-badge emerald"><i class="fa-solid fa-route"></i> Urban Transit & Multi-Threaded
+                Simulation</div>
+              <h2 class="project-name">3. TramSimulator — MPK Kraków Engine</h2>
+              <p class="project-tagline">Architected a high-throughput, multi-threaded simulation engine using Dart
+                Isolates to offload complex graph computations and passenger routing from the UI thread. Powered by
+                real-time Dijkstra pathfinding and custom Min-Heap event priority queues.</p>
+            </div>
+            <div class="project-links">
+              <span class="tech-pill status-pill-yellow"><i class="fa-solid fa-hourglass-half"></i> In Progress (2026 –
+                Present)</span>
+              <span class="tech-pill"><i class="fa-brands fa-flutter"></i> Flutter / Dart Isolates</span>
+              <span class="tech-pill"><i class="fa-solid fa-diagram-next"></i> TransitRouter (Dijkstra)</span>
+              <span class="tech-pill"><i class="fa-solid fa-clock-rotate-left"></i> Custom Binary Min-Heap</span>
+            </div>
+          </div>
+
+          <!-- Media Showcase -->
+          <div class="media-single-frame glass">
+            <img src="images/trams/tram1.png" alt="TramSimulator MPK Kraków Canvas Render Screenshot"
+              class="project-media-img">
+            <div class="media-caption"><i class="fa-solid fa-map-location-dot"></i> Tramway Network Map Rendering in
+              Canvas Technology at 60 FPS (Flutter)</div>
+          </div>
+
+          <div class="project-body-grid">
+            <div class="project-info">
+              <h4><i class="fa-solid fa-gears"></i> Key Features & System Architecture</h4>
+              <ul class="feature-list">
+                <li>
+                  <i class="fa-solid fa-check-circle emerald"></i>
+                  <div>
+                    <strong>Dart Isolates Multi-Threading:</strong>
+                    Offloading graph computations, Dijkstra pathfinding, and passenger routing from the main UI thread
+                    onto concurrent Dart background isolates.
+                  </div>
+                </li>
+                <li>
+                  <i class="fa-solid fa-check-circle emerald"></i>
+                  <div>
+                    <strong>Thread-Safe State Synchronization:</strong>
+                    Non-blocking event streams (StreamController) and reactive state management for zero-latency game
+                    state persistence.
+                  </div>
+                </li>
+                <li>
+                  <i class="fa-solid fa-check-circle emerald"></i>
+                  <div>
+                    <strong>Custom Min-Heap Data Structure:</strong>
+                    Low-overhead binary heap (_MinHeap) driving event priority queues in PassengerSystem and node
+                    expansion.
+                  </div>
+                </li>
+                <li>
+                  <i class="fa-solid fa-check-circle emerald"></i>
+                  <div>
+                    <strong>Stochastic Delay Model:</strong>
+                    TramDelayModel simulating infrastructure failures, emergency depot dispatches, passenger exchange
+                    times, and traffic density.
+                  </div>
+                </li>
+                <li>
+                  <i class="fa-solid fa-check-circle emerald"></i>
+                  <div>
+                    <strong>Custom Canvas Painter (MpkPainter):</strong>
+                    Smooth 60 FPS rendering of physical tracks, stops, real-time tram positions, and day/night cycles.
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Tram Code Showcase -->
+            <div class="project-visual">
+              <div class="code-window glass">
+                <div class="window-header">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                  <span class="window-title">transit_router.dart — Multi-Hop Dijkstra</span>
+                </div>
+                <pre class="code-body"><code><span class="token-comment">// Multi-hop passenger route optimization</span>
+<span class="token-keyword">class</span> <span class="token-title">TransitRouter</span> {
+  <span class="token-title">RoutePlan</span> findFastestRoute(StopNode origin, StopNode dest) {
+    <span class="token-keyword">final</span> priorityQueue = _MinHeap&lt;SearchNode&gt;();
+    priorityQueue.insert(SearchNode(origin, cost: <span class="token-number">0.0</span>));
+    
+    <span class="token-keyword">while</span> (!priorityQueue.isEmpty) {
+      <span class="token-keyword">final</span> current = priorityQueue.extractMin();
+      <span class="token-keyword">if</span> (current.node == dest) <span class="token-keyword">return</span> current.buildPlan();
+      
+      <span class="token-comment">// Edge relaxation with transfer penalties</span>
+      relaxConnections(current, priorityQueue);
+    }
+  }
+}</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SUBSECTION 4: Neuroglancer Connectomics Interface -->
+      <section id="neuro" class="project-subsection">
+        <div class="project-detail-card glass">
+          <div class="project-header">
+            <div class="project-title-group">
+              <div class="project-badge cyan"><i class="fa-solid fa-brain"></i> Neuroinformatics & Connectomics
+                (Brainhack Warsaw 2026)</div>
+              <h2 class="project-name">4. Neuroglancer — MICrONS Connectomics Interface</h2>
+              <p class="project-tagline">Engineered a solution to explore large-scale connectomics datasets and generate
+                3D Neuroglancer views. Utilized Python (pandas, numpy, ThreadingHTTPServer) for data processing and
+                integrated D3.js and specialized libraries (caveclient, cloud-volume) for advanced data visualization.
+              </p>
+            </div>
+            <div class="project-links">
+              <span class="tech-pill status-pill-yellow"><i class="fa-solid fa-hourglass-half"></i> In Progress
+                (2026)</span>
+              <span class="tech-pill"><i class="fa-brands fa-python"></i> Python (pandas, numpy)</span>
+              <span class="tech-pill"><i class="fa-solid fa-cube"></i> Neuroglancer WebGL 3D</span>
+              <span class="tech-pill"><i class="fa-solid fa-diagram-project"></i> caveclient / cloud-volume</span>
+            </div>
+          </div>
+
+          <!-- Media Showcase -->
+          <div class="media-gallery-grid">
+            <div class="media-frame glass">
+              <img src="images/neuro/main.png" alt="Neuroglancer Web Viewer Main Dashboard" class="project-media-img">
+              <div class="media-caption"><i class="fa-solid fa-sliders"></i> Connection Panel & MICrONS Materialization
+                Table Explorer</div>
+            </div>
+            <div class="media-frame glass">
+              <img src="images/neuro/graph.png" alt="Neuroglancer Connectivity Graph" class="project-media-img">
+              <div class="media-caption"><i class="fa-solid fa-circle-nodes"></i> Synaptic Connectivity Graph
+                Visualization</div>
+            </div>
+          </div>
+
+          <div class="media-single-frame glass">
+            <img src="images/neuro/neuroglancer.png" alt="Neuroglancer 3D Volume Rendering" class="project-media-img">
+            <div class="media-caption"><i class="fa-solid fa-vr-cardboard"></i> Volumetric 3D Scene Rendering in
+              Neuroglancer WebGL Engine</div>
+          </div>
+
+          <div class="project-body-grid">
+            <div class="project-info">
+              <h4><i class="fa-solid fa-circle-nodes"></i> Key Features & System Architecture</h4>
+              <ul class="feature-list">
+                <li>
+                  <i class="fa-solid fa-check-circle cyan"></i>
+                  <div>
+                    <strong>MICrONS Dataset Exploration:</strong>
+                    Dedicated web UI to search neural segment IDs, overlay segmentation masks, and filter synaptic data
+                    from the CAVE database.
+                  </div>
+                </li>
+                <li>
+                  <i class="fa-solid fa-check-circle cyan"></i>
+                  <div>
+                    <strong>Dynamic Neuroglancer View Generation:</strong>
+                    Programmatic construction of visualization states and unique URLs configured with WebGL 3D camera
+                    angles and volume layers.
+                  </div>
+                </li>
+                <li>
+                  <i class="fa-solid fa-check-circle cyan"></i>
+                  <div>
+                    <strong>Synaptic Connectivity Analysis:</strong>
+                    Integration with materialization tables to analyze axonal and dendritic connectivity between
+                    selected neurons using pandas and numpy.
+                  </div>
+                </li>
+                <li>
+                  <i class="fa-solid fa-check-circle cyan"></i>
+                  <div>
+                    <strong>Volumetric Scene State Persistence:</strong>
+                    Persistent saving and loading of research sessions to restore exact segmentation states without
+                    re-querying.
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Code Showcase -->
+            <div class="project-visual">
+              <div class="code-window glass">
+                <div class="window-header">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                  <span class="window-title">data_access.py — CAVE Connectomics Engine</span>
+                </div>
+                <pre class="code-body"><code><span class="token-comment"># Generate viewer state URL for Neuroglancer</span>
+<span class="token-keyword">def</span> <span class="token-title">generate_neuroglancer_url</span>(segment_ids, dataset=<span class="token-string">"minnie65"</span>):
+    client = CAVEclient(dataset)
+    viewer_state = neuroglancer.ViewerState()
+    
+    <span class="token-comment"># Attach EM volume and segmentation layers</span>
+    viewer_state.layers[<span class="token-string">'em'</span>] = neuroglancer.ImageLayer(source=client.info.image_source())
+    viewer_state.layers[<span class="token-string">'segmentation'</span>] = neuroglancer.SegmentationLayer(
+        source=client.info.segmentation_source(),
+        segments=segment_ids
+    )
+    <span class="token-keyword">return</span> neuroglancer.to_url(viewer_state)</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+      <!-- SUBSECTION 6: Technologies Overview (CV Comprehensive Skills) -->
+      <section id="skills" class="project-subsection">
+        <div class="skills-grid glass">
+
+          <div class="skill-category">
+            <h4><i class="fa-solid fa-code"></i> Programming Languages</h4>
+            <div class="badges-wrapper">
+              <span class="badge-tech"><i class="fa-brands fa-python"></i> Python</span>
+              <span class="badge-tech"><i class="fa-brands fa-java"></i> Java</span>
+              <span class="badge-tech"><i class="fa-solid fa-c"></i> C++</span>
+              <span class="badge-tech"><i class="fa-brands fa-js"></i> JavaScript</span>
+              <span class="badge-tech"><i class="fa-solid fa-bolt"></i> Dart</span>
+              <span class="badge-tech"><i class="fa-solid fa-wave-square"></i> MATLAB</span>
+              <span class="badge-tech"><i class="fa-solid fa-database"></i> SQL</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h4><i class="fa-solid fa-microchip"></i> Embedded Systems</h4>
+            <div class="badges-wrapper">
+              <span class="badge-tech"><i class="fa-solid fa-microchip"></i> Arduino / ESP8266</span>
+              <span class="badge-tech"><i class="fa-brands fa-raspberry-pi"></i> Raspberry Pi</span>
+              <span class="badge-tech"><i class="fa-solid fa-gears"></i> Low-level (Registers & Interrupts)</span>
+              <span class="badge-tech"><i class="fa-solid fa-wifi"></i> WiFi / ESP-NOW / HTTP</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h4><i class="fa-solid fa-layer-group"></i> Concurrency & Parallel Computing</h4>
+            <div class="badges-wrapper">
+              <span class="badge-tech"><i class="fa-solid fa-diagram-next"></i> Multithreading (Java, C++,
+                Python)</span>
+              <span class="badge-tech"><i class="fa-solid fa-arrows-spin"></i> Python Asyncio</span>
+              <span class="badge-tech"><i class="fa-solid fa-network-wired"></i> OpenMP & MPI</span>
+              <span class="badge-tech"><i class="fa-solid fa-bolt"></i> Dart Isolates</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h4><i class="fa-solid fa-brain"></i> Signal Processing & EEG</h4>
+            <div class="badges-wrapper">
+              <span class="badge-tech"><i class="fa-solid fa-wave-square"></i> Signal Processing (MATLAB)</span>
+              <span class="badge-tech"><i class="fa-solid fa-chart-line"></i> EEGLAB & EEG Data Analysis</span>
+              <span class="badge-tech"><i class="fa-solid fa-sliders"></i> BioSemi Systems</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h4><i class="fa-solid fa-cubes"></i> Tools & Databases</h4>
+            <div class="badges-wrapper">
+              <span class="badge-tech"><i class="fa-brands fa-docker"></i> Docker & Linux</span>
+              <span class="badge-tech"><i class="fa-brands fa-git-alt"></i> Git & GitHub Actions CI/CD</span>
+              <span class="badge-tech"><i class="fa-solid fa-hammer"></i> CMake</span>
+              <span class="badge-tech"><i class="fa-solid fa-database"></i> PostgreSQL & NoSQL</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h4><i class="fa-solid fa-robot"></i> Software Engineering & AI Tools</h4>
+            <div class="badges-wrapper">
+              <span class="badge-tech"><i class="fa-solid fa-shapes"></i> OOP, Data Structures & Algorithms</span>
+              <span class="badge-tech"><i class="fa-solid fa-shield-halved"></i> SOLID Principles & Design
+                Patterns</span>
+              <span class="badge-tech"><i class="fa-solid fa-gears"></i> REST APIs & Agile / Scrum</span>
+              <span class="badge-tech"><i class="fa-solid fa-wand-magic-sparkles"></i> GitHub Copilot & Claude AI</span>
+              <span class="badge-tech"><i class="fa-solid fa-lock"></i> TCP/IP Protocols & Security</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer glass">
+      <div class="footer-content">
+        <p>© 2026 Jan Sakłak — Engineering Portfolio & CV. Built for GitHub Pages.</p>
+        <div class="footer-links">
+          <a href="#terminal">Back to top <i class="fa-solid fa-arrow-up"></i></a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
 </body>
-
-<!-- Calculator Popup (Add this code once in a common HTML file like footer) -->
-<div id="calculator-popup" class="calculator-popup hidden">
-    <div class="calculator-window">
-        <div class="calculator-header">
-            <span class="calculator-title">Calculator</span>
-            <button id="close-calculator-btn" class="close-btn">X</button>
-        </div>
-        <div class="calculator-body">
-            <input type="text" id="calc-display" disabled />
-            <div class="calc-buttons">
-                <button class="calc-btn" onclick="appendToDisplay('1')">1</button>
-                <button class="calc-btn" onclick="appendToDisplay('2')">2</button>
-                <button class="calc-btn" onclick="appendToDisplay('3')">3</button>
-                <button class="calc-btn" onclick="appendToDisplay('+')">+</button>
-                
-                <button class="calc-btn" onclick="appendToDisplay('4')">4</button>
-                <button class="calc-btn" onclick="appendToDisplay('5')">5</button>
-                <button class="calc-btn" onclick="appendToDisplay('6')">6</button>
-                <button class="calc-btn" onclick="appendToDisplay('-')">-</button>
-                
-                <button class="calc-btn" onclick="appendToDisplay('7')">7</button>
-                <button class="calc-btn" onclick="appendToDisplay('8')">8</button>
-                <button class="calc-btn" onclick="appendToDisplay('9')">9</button>
-                <button class="calc-btn" onclick="appendToDisplay('*')">*</button>
-
-                <button class="calc-btn" onclick="appendToDisplay('0')">0</button>
-                <button class="calc-btn" onclick="clearDisplay()">C</button>
-                <button class="calc-btn" onclick="calculateResult()">=</button>
-                <button class="calc-btn" onclick="appendToDisplay('/')">/</button>
-            </div>
-        </div>
-    </div>
-</div>
-
 
 </html>
