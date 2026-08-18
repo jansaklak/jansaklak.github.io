@@ -353,6 +353,48 @@
             margin-bottom: 20px;
         }
 
+        .project-video-container {
+            margin: 0 0 20px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e9edf2;
+            background: #0f172a;
+        }
+
+        .project-video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+
+        .project-images-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 0 0 20px 0;
+        }
+
+        .project-image-item {
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e9edf2;
+            background: #f8fafc;
+            height: 140px;
+        }
+
+        .project-image-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.25s ease;
+        }
+
+        .project-image-item:hover img {
+            transform: scale(1.03);
+        }
+
         .project-tech {
             display: flex;
             flex-wrap: wrap;
@@ -691,6 +733,14 @@
                                 Server orchestration in Python with a Java client (JavaFX + JediTerm).
                                 Admin web panel for session monitoring, user management, and bulk import.
                             </p>
+                            <div class="project-images-grid">
+                                <div class="project-image-item">
+                                    <img src="images/terminal/running.png" alt="Terminal Gateway live PTY session" />
+                                </div>
+                                <div class="project-image-item">
+                                    <img src="images/terminal/docker.png" alt="Terminal Gateway Docker environment" />
+                                </div>
+                            </div>
                             <div class="project-tech">
                                 <span><i class="fa-brands fa-java"></i> Java 17 / JavaFX</span>
                                 <span><i class="fa-brands fa-docker"></i> Docker PTY</span>
@@ -718,6 +768,13 @@
                                 Interactive web dashboard with real-time DAG execution, Gantt charts,
                                 and 8 scheduling strategies. Parallel multi-core benchmarks and JSON export.
                             </p>
+                            <div class="project-video-container">
+                                <video controls autoplay muted loop playsinline preload="metadata">
+                                    <source src="images/embedded/embedded.mov" type="video/quicktime">
+                                    <source src="images/embedded/embedded.mov" type="video/mp4">
+                                    Your browser does not support HTML5 video playback.
+                                </video>
+                            </div>
                             <div class="project-tech">
                                 <span><i class="fa-solid fa-code"></i> C++17</span>
                                 <span><i class="fa-brands fa-python"></i> Python REST</span>
