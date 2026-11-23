@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jan Sakłak — Portfolio</title>
     <meta name="description"
-        content="Jan Sakłak" />
+        content="Jan Sakłak — Master's student in Applied Computer Science and Cognitive Science at Jagiellonian University." />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -690,7 +690,7 @@
             <div class="logo">Jan <span>Sakłak</span></div>
             <nav class="nav-links">
                 <a href="#projects" class="active">Projects</a>
-                <a href="#skills">Skills</a>
+                <!-- <a href="#skills">Skills</a> -->
             </nav>
             <div class="header-actions">
                 <a href="https://github.com/jansaklak" target="_blank" class="btn btn-outline">
@@ -799,37 +799,66 @@
                 <!-- Project 3: Tram Simulator -->
                 <div class="project-card">
                     <div class="project-card-inner">
-                        <div class="project-media">
-                            <img src="images/trams/tram1.png" alt="Kraków Tram Transit Simulator" />
-                        </div>
-                        <div class="project-content">
+                        <div class="project-content" style="grid-column: 1 / -1;">
                             <span class="project-badge blue"><i class="fa-solid fa-train-tram"></i> High-Performance
                                 Simulation</span>
                             <h3>Kraków Tram Simulator</h3>
-                            <p class="tagline">High-throughput microscopic transit engine powered by multi-threaded Dart
-                                Isolates and contracted graph routing.</p>
+                            <p class="tagline">City transit simulation rebuilt with React Native, Expo and TypeScript
+                                for web, Android and iOS.</p>
                             <p class="desc">
-                                Engineered for massive concurrency using Dart Isolates to offload multi-agent passenger
-                                flow simulation, spatial queries, and multi-leg Dijkstra pathfinding off the UI thread.
-                                Utilizes contracted graph topologies, pre-indexed track networks, and deterministic
-                                sub-stepping to run thousands of simulation hours in headless mode, exposed via a
-                                standalone REST API server.
+                                Rewrote the original Flutter / Dart application in React Native with a shared 2D map
+                                and a TypeScript simulation engine. Models tram and bus operations, individual
+                                residents' daily journeys, transfers, ticket choices and competition from cars and taxis.
+                                Runs browser simulation in a Web Worker to keep the interface responsive, with
+                                headless simulation tools and a REST API for automated scenarios.
                             </p>
                             <div class="project-tech">
-                                <span><i class="fa-brands fa-flutter"></i> Flutter / Dart</span>
-                                <span><i class="fa-solid fa-microchip"></i> Dart Isolates & Concurrency</span>
-                                <span><i class="fa-solid fa-route"></i> Contracted Graphs / Dijkstra</span>
+                                <span><i class="fa-brands fa-react"></i> React Native / Expo</span>
+                                <span><i class="fa-solid fa-code"></i> TypeScript</span>
+                                <span><i class="fa-solid fa-microchip"></i> Web Workers</span>
+                                <span><i class="fa-solid fa-route"></i> Multimodal Routing</span>
                                 <span><i class="fa-solid fa-network-wired"></i> Headless REST API</span>
                             </div>
-                            <a href="https://github.com/jansaklak/TramSimulator" target="_blank" class="project-link">
-                                <i class="fa-brands fa-github"></i> View repository
+                            <a href="https://tramsim.vercel.app/" target="_blank" rel="noopener noreferrer"
+                                class="project-link">
+                                <i class="fa-solid fa-gamepad"></i> Play online
                             </a>
                         </div>
                     </div>
                 </div>
 
 
-                <!-- Project 4: Neuroglancer Connectomics -->
+                <!-- Project 4: BrainAccess BLE Driver -->
+                <div class="project-card">
+                    <div class="project-card-inner">
+                        <div class="project-content" style="grid-column: 1 / -1;">
+                            <span class="project-badge green"><i class="fa-brands fa-bluetooth-b"></i> EEG &amp; BLE</span>
+                            <h3>BrainAccess — Unofficial BLE Driver</h3>
+                            <p class="tagline">Independent Python driver bringing BrainAccess EEG acquisition to macOS,
+                                including Apple Silicon Macs without official native libraries.</p>
+                            <p class="desc">
+                                Built direct Bluetooth Low Energy (GATT) communication for BA MINI and HALO headsets
+                                using Bleak, with EEG packet decoding and real-time signal processing.
+                                Supports 250 / 500 Hz acquisition on BA MINI, configurable preview filters and
+                                spectral analysis. A FastAPI dashboard provides live signal visualization, raw EEG
+                                recording with synchronized experiment markers, and Lab Streaming Layer integration.
+                                Also supports Windows and Linux; developed independently of the manufacturer.
+                            </p>
+                            <div class="project-tech">
+                                <span><i class="fa-brands fa-python"></i> Python / Asyncio</span>
+                                <span><i class="fa-brands fa-bluetooth-b"></i> BLE / GATT / Bleak</span>
+                                <span><i class="fa-solid fa-wave-square"></i> NumPy / SciPy</span>
+                                <span><i class="fa-solid fa-network-wired"></i> FastAPI / WebSockets</span>
+                                <span><i class="fa-solid fa-brain"></i> EEG / LSL</span>
+                            </div>
+                            <a href="https://github.com/jansaklak/BA_EEG_Driver" target="_blank" class="project-link">
+                                <i class="fa-brands fa-github"></i> View repository
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: Neuroglancer Connectomics -->
                 <div class="project-card reverse">
                     <div class="project-card-inner">
                         <div class="project-media">
@@ -857,7 +886,7 @@
                     </div>
                 </div>
 
-                <!-- Project 5: Tickets System API -->
+                <!-- Project 6: Tickets System API -->
                 <div class="project-card reverse">
                     <div class="project-card-inner">
                         <div class="project-media">
@@ -894,6 +923,7 @@
         <!-- ==========================================================
         SKILLS
         ========================================================== -->
+        <!--
         <section id="skills">
             <div class="section-label"><i class="fa-regular fa-layer-group"></i> Competencies</div>
             <h2 class="section-title">Skills &amp; Technologies</h2>
@@ -904,7 +934,7 @@
                     <h4><i class="fa-regular fa-code"></i> Languages</h4>
                     <div class="skill-tags">
                         <span>Python</span><span>Java</span><span>C++</span>
-                        <span>JavaScript</span><span>Dart</span><span>Swift</span><span>Kotlin
+                        <span>JavaScript</span><span>TypeScript</span><span>Dart</span><span>Swift</span><span>Kotlin
                             (Ktor)</span><span>MATLAB</span><span>SQL</span>
                     </div>
                 </div>
@@ -913,7 +943,7 @@
                     <h4><i class="fa-regular fa-microchip"></i> Embedded</h4>
                     <div class="skill-tags">
                         <span>Arduino</span><span>ESP8266</span><span>Raspberry Pi</span>
-                        <span>Registers / Interrupts</span><span>WiFi / ESP-NOW</span>
+                        <span>Registers / Interrupts</span><span>WiFi / ESP-NOW</span><span>BLE / GATT</span>
                     </div>
                 </div>
 
@@ -921,7 +951,7 @@
                     <h4><i class="fa-regular fa-diagram-next"></i> Concurrency</h4>
                     <div class="skill-tags">
                         <span>Java Multithreading</span><span>C++ Multithreading</span>
-                        <span>Python Asyncio</span><span>OpenMP / MPI</span><span>Dart Isolates</span>
+                        <span>Python Asyncio</span><span>OpenMP / MPI</span><span>Dart Isolates</span><span>Web Workers</span>
                     </div>
                 </div>
 
@@ -929,6 +959,14 @@
                     <h4><i class="fa-regular fa-wave-square"></i> Signal Processing</h4>
                     <div class="skill-tags">
                         <span>MATLAB</span><span>EEGLAB</span><span>BioSemi EEG</span>
+                        <span>NumPy / SciPy</span><span>BrainAccess EEG</span><span>LSL</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h4><i class="fa-brands fa-react"></i> App Development</h4>
+                    <div class="skill-tags">
+                        <span>React</span><span>React Native</span><span>Expo</span><span>FastAPI</span>
                     </div>
                 </div>
 
@@ -951,6 +989,7 @@
 
             </div>
         </section>
+        -->
 
 
 
@@ -963,7 +1002,7 @@
             <span>&copy; 2026 Jan Sakłak</span>
             <div class="footer-links">
                 <a href="#projects">Projects</a>
-                <a href="#skills">Skills</a>
+                <!-- <a href="#skills">Skills</a> -->
                 <a href="https://github.com/jansaklak" target="_blank"><i class="fa-brands fa-github"></i></a>
                 <a href="https://www.linkedin.com/in/jansaklak/" target="_blank"><i
                         class="fa-brands fa-linkedin"></i></a>
